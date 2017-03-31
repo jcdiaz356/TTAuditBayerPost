@@ -89,7 +89,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Apronax 550"
+                android:text="Apronax"
                 android:padding="5dp"
                 android:tag="a"
                 android:id="@+id/cbA" />
@@ -97,7 +97,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bephantene"
+                android:text="Bepanthen"
                 android:padding="5dp"
                 android:tag="b"
                 android:id="@+id/cbB" />
@@ -145,7 +145,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Supradin"
+                android:text="Supradyn"
                 android:padding="5dp"
                 android:tag="h"
                 android:id="@+id/cbH" />

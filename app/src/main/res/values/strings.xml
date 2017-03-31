@@ -48,9 +48,18 @@
     <string name="album_name_backup">ttAuditBayerPhotoBackup</string>
 
 
+    <string name="save">Guardar</string>
+    <string name="saveInformation">Está seguro desea Guardar</string>
+    <string name="saveError">No se pudo guardar la información intentelo nuevamente</string>
+    <string name="gpsMessage">Gps deshabilitado, por favor habilitar el gps, para localización</string>
+    <string name="saveSuccess">Se guardo correctamente los datos</string>
+    <string name="storeAuditFinish">Terminó el registro de la tienda</string>
+
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+
     <string name="sw_si">SI</string>
     <string name="sw_no">NO</string>
-
 
     <!-- -->
     <string name="dialog_message_permission">Para poder iniciar la aplicación necesita establecer los permisos</string>
@@ -61,7 +70,29 @@
     <string name="version">Versión</string>
     <string name="log">Log</string>
     <string name="developer">Developed by:</string>
-    <!-- Log Versiones  -->
+    <string name="mesaage_on_back">No se puede volver atras, los datos ya fueron guardado, para modificar póngase en contácto con el administrador</string>
+    <string name="text_loading">Cargando...</string>
+    <string name="message_no_save_data">No se pudo guardar la información intentelo nuevamente</string>
+    <string name="message_save">Guardar</string>
+    <string name="message_save_information">Está seguro de guardar </string>
+    <string name="message_login_error">No se pudo iniciar sessión</string>
+    <string name="message_login_success">Inicio de sesión correctamente</string>
+    <string name="message_select_options">Seleccione una opción</string>
+    <string name="text_requiere_commet">Ingresar el giro</string>
+    <string name="text_requiere_fullname">Ingresar Nombre o Razón Social</string>
+    <string name="text_requiere_address">Ingresar Dirección</string>
+    <string name="title_activity_cliente_perfecto">ClientePerfectoActivity</string>
+    <string name="message_create_store_finish">Termino el registro de la tienda</string>
+    <string name="message_gps_title">GPS configuración</string>
+    <string name="message_gps_information">El GPS no está habilitado. Ingrese a la configuración para habilitarlo</string>
+    <string name="message_gps_enabled_information">Habilite su GPS para continuar</string>
+    <string name="message_product_max_options">Debe seleccionar maximo 3 opciones</string>
+    <string name="message_product_min_options">Debe seleccionar 1 opción como mínimo</string>
+    <string name="message_priority_rank">El valor de prioridad debe ser entre 1 y 3</string>
+    <string name="message_priority_initial">El valor de prioridad debe iniciar en 1</string>
+    <string name="message_priority_no_equal">No se puede ingresar prioridades iguales</string>
+    <string name="message_priority_value_numeric">Debe ingresar un valor numérico</string>
 
+    <!-- Log Versiones  -->
 
 </resources>

@@ -39,18 +39,18 @@ import com.dataservicios.ttauditbayerpost.util.SessionManager;
  */
 
 public class Redoxon extends Activity {
-
+    private static final String LOG_TAG = Redoxon.class.getSimpleName();
     private Activity MyActivity = this ;
-    private static final String LOG_TAG = "Redoxon";
+
     private SessionManager session;
 
     private Switch sw_recomienda, sw_stock ;
     private LinearLayout ly_stock,ly_productos;
     private Button bt_photo, bt_guardar;
-    private EditText et_Comentario, et_ComentarioOtros, etProducto , etA,etB,etC, etD ,etE,etF;
+    private EditText et_Comentario, et_ComentarioOtros;
     private TextView tv_ComentarioOtros;
     private TextView tv_Pregunta,tvStock;
-    private CheckBox cbProducto , cbA,cbB,cbC,cbD,cbE,cbF ;
+
 
     private String tipo,cadenaruc,fechaRuta, comentario="" ,comentarioOtros="";
     private Integer user_id, company_id,store_id,rout_id,audit_id, product_id, poll_id, poll_id_2,poll_id_3;
@@ -81,43 +81,39 @@ public class Redoxon extends Activity {
         tvStock =(TextView) findViewById(R.id.tvStock);
         sw_stock = (Switch) findViewById(R.id.swStock);
 
-
-        cbProducto = (CheckBox) findViewById(R.id.cbProducto);
-        cbA = (CheckBox) findViewById(R.id.cbA);
-        cbB = (CheckBox) findViewById(R.id.cbB);
-        cbC = (CheckBox) findViewById(R.id.cbC);
-        cbD = (CheckBox) findViewById(R.id.cbD);
-        cbE = (CheckBox) findViewById(R.id.cbE);
-        cbF = (CheckBox) findViewById(R.id.cbF);
-
-
-        etProducto = (EditText) findViewById(R.id.etProducto);
-        etA = (EditText) findViewById(R.id.etA);
-        etB = (EditText) findViewById(R.id.etB);
-        etC = (EditText) findViewById(R.id.etC);
-        etD = (EditText) findViewById(R.id.etD);
-         etE = (EditText) findViewById(R.id.etE);
-         etF = (EditText) findViewById(R.id.etF);
-
         editTextArray = new EditText[] {
 
-                (EditText) findViewById(R.id.etProducto),
                 (EditText) findViewById(R.id.etA),
                 (EditText) findViewById(R.id.etB),
                 (EditText) findViewById(R.id.etC),
                 (EditText) findViewById(R.id.etD),
                 (EditText) findViewById(R.id.etE),
                 (EditText) findViewById(R.id.etF),
+                (EditText) findViewById(R.id.etG),
+                (EditText) findViewById(R.id.etH),
+                (EditText) findViewById(R.id.etI),
+                (EditText) findViewById(R.id.etJ),
+                (EditText) findViewById(R.id.etK),
+                (EditText) findViewById(R.id.etL),
+                (EditText) findViewById(R.id.etM),
+                (EditText) findViewById(R.id.etN),
         };
         checkBoxArray = new CheckBox[] {
 
-                (CheckBox) findViewById(R.id.cbProducto),
                 (CheckBox) findViewById(R.id.cbA),
                 (CheckBox) findViewById(R.id.cbB),
                 (CheckBox) findViewById(R.id.cbC),
                 (CheckBox) findViewById(R.id.cbD),
                 (CheckBox) findViewById(R.id.cbE),
                 (CheckBox) findViewById(R.id.cbF),
+                (CheckBox) findViewById(R.id.cbG),
+                (CheckBox) findViewById(R.id.cbH),
+                (CheckBox) findViewById(R.id.cbI),
+                (CheckBox) findViewById(R.id.cbJ),
+                (CheckBox) findViewById(R.id.cbK),
+                (CheckBox) findViewById(R.id.cbL),
+                (CheckBox) findViewById(R.id.cbM),
+                (CheckBox) findViewById(R.id.cbN),
         };
 
         ly_stock = (LinearLayout) findViewById(R.id.lyStock);
@@ -145,22 +141,18 @@ public class Redoxon extends Activity {
         audit_id = bundle.getInt("audit_id");
         product_id =bundle.getInt("product_id");
 
-//        poll_id = 72 , solo para exhibiciones de bayer, directo de la base de datos
-
-        poll_id = 520; //SE RECOMIENDA EL PRODUCTO
-        poll_id_2 = 521; //QUE PRODUCTO RECOMENDO
-        poll_id_3 = 522; //STOcK
-
+        poll_id = GlobalConstant.poll_id[2]; //SE RECOMIENDA EL PRODUCTO
+        poll_id_2 = GlobalConstant.poll_id[3]; //QUE PRODUCTO RECOMENDO
+        poll_id_3 = GlobalConstant.poll_id[4]; //STOcK
 
         pDialog = new ProgressDialog(MyActivity);
-        pDialog.setMessage("Cargando...");
+        pDialog.setMessage(getString(R.string.text_loading));
         pDialog.setCancelable(false);
 
         session = new SessionManager(getApplicationContext());
         HashMap<String, String> user = session.getUserDetails();
         // id
         user_id = Integer.valueOf(user.get(SessionManager.KEY_ID_USER)) ;
-
 
         db = new DatabaseHelper(getApplicationContext());
         PollProductStore pps = new PollProductStore();
@@ -171,165 +163,44 @@ public class Redoxon extends Activity {
         ly_stock.setEnabled(true);
         ly_stock.setVisibility(View.VISIBLE);
 
-        if(tipo.equals("CADENA")) {
-
-            if(cadenaruc.equals("INKAFARMA")){
-                cbA.setText("Easylife");
-                cbB.setText("Sunlife");
-                cbC.setText("Redoxvit");
-                cbD.setText("Easy Vit C");
-                cbE.setText("Mi Vit C");
-            }
-            if(cadenaruc.equals("MIFARMA")){
-                cbA.setText("Easylife");
-                cbB.setText("Sunlife");
-                cbC.setText("Redoxvit");
-                cbD.setText("Redozinc");
-                cbE.setText(" Vitamina C");
-            }
-            if(cadenaruc.equals("ARCANGEL")){
-                cbA.setText("Easylife");
-                cbB.setText("Sunlife");
-                cbC.setText("Redoxvit");
-                cbD.setText("Efervit-C");
-                cbE.setText("Sunvit");
-            }
-
-            if(cadenaruc.equals("B&S")){
-                cbA.setText("Easylife");
-                cbB.setText("Sunlife");
-                cbC.setText("Redoxvit");
-                cbD.setText("Redomax");
-                cbE.setText("Sunvit");
-            }
-
-        } else if(tipo.equals("HORIZONTAL") || tipo.equals("DETALLISTA") || tipo.equals("MINI CADENAS")  || tipo.equals("SUB DISTRIBUIDOR")) {
-
-            cbA.setText("Genfar");
-            cbB.setText("Efer-C");
-            cbC.setText("Redoxvit");
-            cbD.setText("Redozinc");
-            cbE.setText("Efervit-C");
-        }
-
-        cbProducto.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        checkBoxArray[0].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if ( isChecked )
                 {
+                    editTextArray[0].setText("1");
+                    editTextArray[0].setEnabled(true);
+                    editTextArray[0].requestFocus();
                     tvStock.setVisibility(View.INVISIBLE);
                     sw_stock.setEnabled(false);
                     sw_stock.setVisibility(View.INVISIBLE);
-
-                    etProducto.setText("1");
-                    etProducto.setEnabled(true);
-                    // etProducto.setFocusable(true);
-                    etProducto.requestFocus();
                 } else{
+                    editTextArray[0].setText("0");
+                    editTextArray[0].setEnabled(false);
 
                     tvStock.setVisibility(View.VISIBLE);
                     sw_stock.setEnabled(true);
                     sw_stock.setVisibility(View.VISIBLE);
-
-                    etProducto.setText("0");
-                    etProducto.setEnabled(false);
                 }
             }
         });
 
-
-
-        cbA.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        loadActionControl();
+        checkBoxArray[13].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if ( isChecked )
                 {
-                    etA.setText("1");
-                    etA.setEnabled(true);
-                    etA.requestFocus();
-                } else{
-                    etA.setText("0");
-                    etA.setEnabled(false);
-                }
-            }
-        });
-
-        cbB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    etB.setText("1");
-                    etB.setEnabled(true);
-                    etB.requestFocus();
-                } else {
-                    etB.setText("0");
-                    etB.setEnabled(false);
-                }
-            }
-        });
-
-        cbC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    etC.setText("1");
-                    etC.setEnabled(true);
-                    etC.requestFocus();
-                } else {
-                    etC.setText("0");
-                    etC.setEnabled(false);
-                }
-            }
-        });
-
-        cbD.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    etD.setText("1");
-                    etD.setEnabled(true);
-                    etD.requestFocus();
-                } else {
-                    etD.setText("0");
-                    etD.setEnabled(false);
-                }
-            }
-        });
-
-        cbE.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    etE.setText("1");
-                    etE.setEnabled(true);
-                    etE.requestFocus();
-                } else {
-                    etE.setText("0");
-                    etE.setEnabled(false);
-                }
-            }
-        });
-
-
-
-        cbF.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    etF.setText("1");
-                    etF.setEnabled(true);
-                    etF.requestFocus();
+                    editTextArray[13].setText("1");
+                    editTextArray[13].setEnabled(true);
+                    editTextArray[13].requestFocus();
                     // perform logic
                     tv_ComentarioOtros.setVisibility(View.VISIBLE);
                     et_ComentarioOtros.setEnabled(true);
                     et_ComentarioOtros.setVisibility(View.VISIBLE);
-
                 } else{
-
-                    etF.setText("0");
-                    etF.setEnabled(false);
-
+                    editTextArray[13].setText("0");
+                    editTextArray[13].setEnabled(false);
                     tv_ComentarioOtros.setVisibility(View.INVISIBLE);
                     et_ComentarioOtros.setEnabled(false);
                     et_ComentarioOtros.setVisibility(View.INVISIBLE);
@@ -344,15 +215,11 @@ public class Redoxon extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     stock = 1;
-
                 } else {
                     stock = 0;
-
                 }
             }
         });
-
-
 
         bt_guardar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -364,11 +231,11 @@ public class Redoxon extends Activity {
                     if (checkBoxArray[x].isChecked()) contado_control++;
                 }
                 if (contado_control > 3) {
-                    Toast.makeText(MyActivity, "Debe seleccionar maximo 3 opciones", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MyActivity, R.string.message_product_max_options, Toast.LENGTH_LONG).show();
                     return;
                 }
                 if (contado_control < 1) {
-                    Toast.makeText(MyActivity, "Debe seleccionar 1 opción como mínimo", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MyActivity, R.string.message_product_min_options, Toast.LENGTH_LONG).show();
                     return;
                 }
                 //-------------------------------------------------------
@@ -380,11 +247,11 @@ public class Redoxon extends Activity {
                         int valor;
                         if( editTextArray[x].getText().equals(""))  valor = 0 ; else valor = Integer.valueOf(String.valueOf(editTextArray[x].getText())) ;
                         if (valor > 3) {
-                            Toast.makeText(MyActivity, "El valor de prioridad debe ser entre 1 y 3", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MyActivity, R.string.message_priority_rank, Toast.LENGTH_LONG).show();
                             return;
                         }
                         if (valor < 1) {
-                            Toast.makeText(MyActivity, "El valor de prioridad debe iniciar en 1", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MyActivity, R.string.message_priority_initial, Toast.LENGTH_LONG).show();
                             return;
                         }
                         for (int i = 0; i < editTextArray.length; i++) {
@@ -393,7 +260,7 @@ public class Redoxon extends Activity {
                                 int nuevo_valor;
                                 nuevo_valor = Integer.valueOf(String.valueOf(editTextArray[i].getText()));
                                 if(valor == nuevo_valor  ){
-                                    Toast.makeText(MyActivity, "No se puede ingresar prioridades iguales", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(MyActivity, R.string.message_priority_no_equal , Toast.LENGTH_LONG).show();
                                     return;
                                 }
                             }
@@ -401,134 +268,69 @@ public class Redoxon extends Activity {
                         }
                     }
                 }
-                if (cbProducto.isChecked()) {
+                totalValores = 0;
+                totalOption = "";
+
+                if (checkBoxArray[0].isChecked()) {
                     int prioridad=0;
-                    prioridad = Integer.valueOf(etProducto.getText().toString());
-                    if(etProducto.getText().equals("")){
+
+                    prioridad = Integer.valueOf(editTextArray[0].getText().toString());
+                    if(editTextArray[0].getText().equals("")){
                         Toast toast;
-                        toast = Toast.makeText(MyActivity, "Debe marcar almenos una opción", Toast.LENGTH_LONG);
+                        toast = Toast.makeText(MyActivity, R.string.message_select_options  , Toast.LENGTH_LONG);
                         toast.show();
                         return;
-                    }else if (prioridad == 1 ||prioridad == 2 || prioridad == 3) {
+                    } else if (prioridad == 1 ||prioridad == 2 || prioridad == 3) {
                         is_recomieda=1;
-                        vProducto = 1;
-                        oProducto = String.valueOf(poll_id_2) + "q" + "-" + etProducto.getText().toString();
-                        //pProducto = etProducto.getText().toString();
+                        totalValores = totalValores + 1 ;
+                        totalOption = String.valueOf(poll_id_2) + "," + product_id + checkBoxArray[0].getTag().toString() + "-" + editTextArray[0].getText().toString()  + "|" + totalOption;  //Apronax
+                        //vProducto = 1;
+                        //oProducto = String.valueOf(poll_id_2) + "," + product_id + checkBoxArray[0].getTag().toString() + "-" + editTextArray[0].getText().toString();  //Apronax
+
                     }
 
                 }
 
-
-
-                if (cbA.isChecked()) {
-                    if(etA.getText().equals("")){
-                        Toast toast;
-                        toast = Toast.makeText(MyActivity, "Debe ingresar un valor numérico", Toast.LENGTH_LONG);
-                        toast.show();
-                        return;
-                    }else  {
-                        vA = 1;
-                        if(tipo.equals("CADENA")) {
-                            oA = String.valueOf(poll_id_2) + "dh" + "-" + etA.getText().toString(); //Easylife
-                        } else if(tipo.equals("HORIZONTAL") || tipo.equals("DETALLISTA") || tipo.equals("MINI CADENAS")  || tipo.equals("SUB DISTRIBUIDOR")) {
-                            oA = String.valueOf(poll_id_2) + "w" + "-" + etA.getText().toString(); //Genfar
+                for (int x = 1; x < checkBoxArray.length - 1; x++) {
+                    if (checkBoxArray[x].isChecked()) {
+                        if(editTextArray[x].getText().equals("")){
+                            Toast toast;
+                            toast = Toast.makeText(MyActivity, R.string.message_priority_value_numeric  , Toast.LENGTH_LONG);
+                            toast.show();
+                            return;
+                        }else  {
+//                            vA = 1;
+//                            oA = String.valueOf(poll_id_2) + "f" + "-" + editTextArray[x].getText().toString(); //Dolocordralan Extra Fuerte
+                            totalValores = totalValores + 1 ;
+                            totalOption = String.valueOf(poll_id_2) + "," + product_id + checkBoxArray[x].getTag().toString() + "-" + editTextArray[x].getText().toString()  + "|" + totalOption;
                         }
-                        pA = etA.getText().toString();
                     }
 
                 }
-                if (cbB.isChecked()) {
-                    if(etB.getText().equals("")){
+
+                if (checkBoxArray[13].isChecked()) {
+                    if(editTextArray[13].getText().equals("")){
                         Toast toast;
-                        toast = Toast.makeText(MyActivity, "Debe ingresar un valor numérico", Toast.LENGTH_LONG);
+                        toast = Toast.makeText(MyActivity,  R.string.message_priority_value_numeric  , Toast.LENGTH_LONG);
                         toast.show();
                         return;
                     }else  {
-                        vB = 1;
-                        if(tipo.equals("CADENA")) {
-                            oB = String.valueOf(poll_id_2) + "di" + "-" + etB.getText().toString(); //Sunlife
-                        } else if(tipo.equals("HORIZONTAL") || tipo.equals("DETALLISTA") || tipo.equals("MINI CADENAS")  || tipo.equals("SUB DISTRIBUIDOR")) {
-                            oB = String.valueOf(poll_id_2) + "dj" + "-" + etB.getText().toString(); //Efer-C
-                        }
-                        pB = etB.getText().toString();
-                    }
-                }
-                if (cbC.isChecked()) {
-                    if(etC.getText().equals("")){
-                        Toast toast;
-                        toast = Toast.makeText(MyActivity, "Debe ingresar un valor numérico", Toast.LENGTH_LONG);
-                        toast.show();
-                        return;
-                    }else  {
-                        vC = 1;
-                        oC = String.valueOf(poll_id_2) + "dk" + "-" + etC.getText().toString(); //dk
-                        pC = etC.getText().toString();
-                    }
-                }
-
-                if (cbD.isChecked()) {
-                    if(etD.getText().equals("")){
-                        Toast toast;
-                        toast = Toast.makeText(MyActivity, "Debe ingresar un valor numérico", Toast.LENGTH_LONG);
-                        toast.show();
-                        return;
-                    }else  {
-                        vD = 1;
-                        if(tipo.equals("CADENA")) {
-                            if(cadenaruc.equals("INKAFARMA")) oD = String.valueOf(poll_id_2) + "dl" + "-" + etD.getText().toString(); //Dolgramin
-                            if(cadenaruc.equals("MIFARMA")) oD = String.valueOf(poll_id_2) + "dn" + "-" + etD.getText().toString(); //Cefadol
-                            if(cadenaruc.equals("ARCANGEL")) oD = String.valueOf(poll_id_2) + "t" + "-" + etD.getText().toString(); //Cefadol
-                            if(cadenaruc.equals("B&S")) oD = String.valueOf(poll_id_2) + "dm" + "-" + etD.getText().toString(); //Cefadol
-                        } else if(tipo.equals("HORIZONTAL") || tipo.equals("DETALLISTA") || tipo.equals("MINI CADENAS")  || tipo.equals("SUB DISTRIBUIDOR")) {
-                            oD = String.valueOf(poll_id_2) + "dn" + "-" + etD.getText().toString(); //Migrax
-                        }
-                        pD = etD.getText().toString();
-                    }
-                }
-
-                if (cbE.isChecked()) {
-                    if(etE.getText().equals("")){
-                        Toast toast;
-                        toast = Toast.makeText(MyActivity, "Debe ingresar un valor numérico", Toast.LENGTH_LONG);
-                        toast.show();
-                        return;
-                    }else  {
-                        vE = 1;
-                        if(tipo.equals("CADENA")) {
-                            if(cadenaruc.equals("INKAFARMA")) oE = String.valueOf(poll_id_2) + "r" + "-" + etE.getText().toString(); //Dolgramin
-                            if(cadenaruc.equals("MIFARMA")) oE = String.valueOf(poll_id_2) + "do" + "-" + etE.getText().toString(); //Cefadol
-                            if(cadenaruc.equals("ARCANGEL")) oE = String.valueOf(poll_id_2) + "dp" + "-" + etE.getText().toString(); //Cefadol
-                            if(cadenaruc.equals("B&S")) oE = String.valueOf(poll_id_2) + "dp" + "-" + etE.getText().toString(); //Cefadol
-                        } else if(tipo.equals("HORIZONTAL") || tipo.equals("DETALLISTA") || tipo.equals("MINI CADENAS")  || tipo.equals("SUB DISTRIBUIDOR")) {
-                            oE = String.valueOf(poll_id_2) + "t" + "-" + etE.getText().toString(); //Migrax
-                        }
-                        pE = etE.getText().toString();
-                    }
-                }
-
-                if (cbF.isChecked()) {
-                    if(etF.getText().equals("")){
-                        Toast toast;
-                        toast = Toast.makeText(MyActivity, "Debe ingresar un valor numérico", Toast.LENGTH_LONG);
-                        toast.show();
-                        return;
-                    }else  {
-                        vF = 1;
-                        oF = String.valueOf(poll_id_2) + "ai" + "-" + etF.getText().toString(); //Otros
-                        pF = etD.getText().toString();
+//                            vA = 1;
+//                            oA = String.valueOf(poll_id_2) + "f" + "-" + editTextArray[x].getText().toString(); //Dolocordralan Extra Fuerte
+                        totalValores = totalValores + 1 ;
+                        totalOption = String.valueOf(poll_id_2) +  checkBoxArray[13].getTag().toString() + "-" + editTextArray[13].getText().toString()  + "|" + totalOption;
                     }
                 }
 
 
-
-                totalValores = vProducto + vA + vB + vC + vD + vE + vF;
-                totalOption = oProducto + "|" +  oA + "|" + oB + "|" + oC + "|" + oD + "|" + oE + "|" + oF;
+//                totalValores = vProducto + vA + vB + vC + vD + vE + vF;
+//                totalOption = oProducto + "|" +  oA + "|" + oB + "|" + oC + "|" + oD + "|" + oE + "|" + oF;
 
                 if(is_recomieda==0){
                     if(totalValores==0){
 
                         Toast toast;
-                        toast = Toast.makeText(MyActivity, "Debe marcar almenos una opción", Toast.LENGTH_LONG);
+                        toast = Toast.makeText(MyActivity, R.string.message_select_options , Toast.LENGTH_LONG);
                         toast.show();
                         return;
                     }
@@ -538,9 +340,9 @@ public class Redoxon extends Activity {
 
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MyActivity);
-                builder.setTitle("Guardar Encuesta");
-                builder.setMessage("Está seguro de guardar todas las encuestas: ");
-                builder.setPositiveButton("Si", new DialogInterface.OnClickListener()
+                builder.setTitle(R.string.save);
+                builder.setMessage(R.string.saveInformation);
+                builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener()
 
                 {
                     @Override
@@ -577,7 +379,7 @@ public class Redoxon extends Activity {
                     }
                 });
 
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
@@ -587,39 +389,9 @@ public class Redoxon extends Activity {
                 builder.show();
                 builder.setCancelable(false);
 
-
-
-
             }
         });
-
-
-
-
-
     }
-
-    private void takePhoto() {
-
-        Intent i = new Intent( MyActivity, AndroidCustomGalleryActivity.class);
-        Bundle bolsa = new Bundle();
-
-
-
-        bolsa.putString("store_id", String.valueOf(store_id));
-        bolsa.putString("product_id", String.valueOf(product_id));
-        bolsa.putString("poll_id", String.valueOf(poll_id));
-        bolsa.putString("url_insert_image", GlobalConstant.dominio + "/insertImagesProductPoll");
-        bolsa.putString("tipo", "1");
-        i.putExtras(bolsa);
-        startActivity(i);
-
-
-    }
-
-
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -777,10 +549,7 @@ public class Redoxon extends Activity {
     private boolean InsertAuditPollsOtions(int poll_id, int status,int result,String comentario) {
         int success;
         try {
-
-
             HashMap<String, String> params = new HashMap<>();
-
             //params.put("poll_id",String.valueOf(poll_id));
             params.put("poll_id", String.valueOf(poll_id));
             params.put("store_id", String.valueOf(store_id));
@@ -830,5 +599,189 @@ public class Redoxon extends Activity {
         return true;
     }
 
+
+    private void loadActionControl(){
+
+        checkBoxArray[1].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if ( isChecked )
+                {
+                    editTextArray[1].setText("1");
+                    editTextArray[1].setEnabled(true);
+                    editTextArray[1].requestFocus();
+                } else{
+                    editTextArray[1].setText("0");
+                    editTextArray[1].setEnabled(false);
+                }
+            }
+        });
+
+        checkBoxArray[2].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if ( isChecked )
+                {
+                    editTextArray[2].setText("1");
+                    editTextArray[2].setEnabled(true);
+                    editTextArray[2].requestFocus();
+                } else{
+                    editTextArray[2].setText("0");
+                    editTextArray[2].setEnabled(false);
+                }
+            }
+        });
+
+        checkBoxArray[3].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if ( isChecked )
+                {
+                    editTextArray[3].setText("1");
+                    editTextArray[3].setEnabled(true);
+                    editTextArray[3].requestFocus();
+                } else{
+                    editTextArray[3].setText("0");
+                    editTextArray[3].setEnabled(false);
+                }
+            }
+        });
+
+        checkBoxArray[4].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if ( isChecked )
+                {
+                    editTextArray[4].setText("1");
+                    editTextArray[4].setEnabled(true);
+                    editTextArray[4].requestFocus();
+                } else{
+                    editTextArray[4].setText("0");
+                    editTextArray[4].setEnabled(false);
+                }
+            }
+        });
+
+        checkBoxArray[5].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if ( isChecked )
+                {
+                    editTextArray[5].setText("1");
+                    editTextArray[5].setEnabled(true);
+                    editTextArray[5].requestFocus();
+                } else{
+                    editTextArray[5].setText("0");
+                    editTextArray[5].setEnabled(false);
+                }
+            }
+        });
+
+        checkBoxArray[6].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if ( isChecked )
+                {
+                    editTextArray[6].setText("1");
+                    editTextArray[6].setEnabled(true);
+                    editTextArray[6].requestFocus();
+                } else{
+                    editTextArray[6].setText("0");
+                    editTextArray[6].setEnabled(false);
+                }
+            }
+        });
+
+        checkBoxArray[7].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if ( isChecked )
+                {
+                    editTextArray[7].setText("1");
+                    editTextArray[7].setEnabled(true);
+                    editTextArray[7].requestFocus();
+                } else{
+                    editTextArray[7].setText("0");
+                    editTextArray[7].setEnabled(false);
+                }
+            }
+        });
+
+        checkBoxArray[8].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if ( isChecked )
+                {
+                    editTextArray[8].setText("1");
+                    editTextArray[8].setEnabled(true);
+                    editTextArray[8].requestFocus();
+                } else{
+                    editTextArray[8].setText("0");
+                    editTextArray[8].setEnabled(false);
+                }
+            }
+        });
+
+        checkBoxArray[9].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if ( isChecked )
+                {
+                    editTextArray[9].setText("1");
+                    editTextArray[9].setEnabled(true);
+                    editTextArray[9].requestFocus();
+                } else{
+                    editTextArray[9].setText("0");
+                    editTextArray[9].setEnabled(false);
+                }
+            }
+        });
+
+        checkBoxArray[10].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if ( isChecked )
+                {
+                    editTextArray[10].setText("1");
+                    editTextArray[10].setEnabled(true);
+                    editTextArray[10].requestFocus();
+                } else{
+                    editTextArray[10].setText("0");
+                    editTextArray[10].setEnabled(false);
+                }
+            }
+        });
+
+        checkBoxArray[11].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if ( isChecked )
+                {
+                    editTextArray[11].setText("1");
+                    editTextArray[11].setEnabled(true);
+                    editTextArray[11].requestFocus();
+                } else{
+                    editTextArray[11].setText("0");
+                    editTextArray[11].setEnabled(false);
+                }
+            }
+        });
+
+        checkBoxArray[12].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if ( isChecked )
+                {
+                    editTextArray[12].setText("1");
+                    editTextArray[12].setEnabled(true);
+                    editTextArray[12].requestFocus();
+                } else{
+                    editTextArray[12].setText("0");
+                    editTextArray[12].setEnabled(false);
+                }
+            }
+        });
+
+    }
 
 }
