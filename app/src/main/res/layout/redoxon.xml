@@ -41,7 +41,7 @@
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="fill_parent"
-                    android:layout_height="820dp"
+                    android:layout_height="790dp"
                     android:padding="5dp"
                     android:id="@+id/lyProductos">
                     <TextView

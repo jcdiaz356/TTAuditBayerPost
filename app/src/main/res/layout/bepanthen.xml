@@ -33,14 +33,14 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_height="700dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="fill_parent"
-                    android:layout_height="406dp"
+                    android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:id="@+id/lyProductos"
                     android:weightSum="1">

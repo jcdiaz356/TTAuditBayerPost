@@ -40,7 +40,7 @@
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="fill_parent"
-                    android:layout_height="820dp"
+                    android:layout_height="900dp"
                     android:padding="5dp"
                     android:id="@+id/lyProductos"
                     android:weightSum="1">
@@ -121,7 +121,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Sanaprox"
+                            android:text="Paldolor"
                             android:tag="d"
                             android:padding="5dp"
                             android:id="@+id/cbD" />
@@ -142,7 +142,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Maxiflam Forte"
+                            android:text="Miofedrol"
                             android:tag="e"
                             android:padding="5dp"
                             android:id="@+id/cbE" />
@@ -390,6 +390,49 @@
                     </RelativeLayout>
 
 
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dolomuskqlar"
+                            android:tag="q"
+                            android:padding="5dp"
+                            android:id="@+id/cbQ" />
+                        <EditText
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/etQ"
+                            android:enabled="false"
+                            android:text="0"
+                            android:layout_toRightOf="@+id/cbQ"
+                            />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Redex"
+                            android:tag="r"
+                            android:padding="5dp"
+                            android:id="@+id/cbR" />
+                        <EditText
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/etR"
+                            android:enabled="false"
+                            android:text="0"
+                            android:layout_toRightOf="@+id/cbR"
+                            />
+                    </RelativeLayout>
 
 
                     <RelativeLayout
@@ -401,17 +444,17 @@
                                 android:text="Otros"
                                 android:tag="ai"
                                 android:padding="5dp"
-                                android:id="@+id/cbQ" />
+                                android:id="@+id/cbS" />
                             <EditText
                                 android:layout_width="42dp"
                                 android:layout_height="42dp"
                                 android:inputType="number"
                                 android:ems="10"
-                                android:id="@+id/etQ"
+                                android:id="@+id/etS"
                                 android:enabled="false"
                                 android:text="0"
 
-                                android:layout_toRightOf="@+id/cbQ"
+                                android:layout_toRightOf="@+id/cbS"
                                 />
                     </RelativeLayout>
                     <LinearLayout

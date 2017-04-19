@@ -35,7 +35,7 @@ import com.dataservicios.ttauditbayerpost.util.JSONParserX;
 import com.dataservicios.ttauditbayerpost.util.SessionManager;
 
 /**
- * Created by Jaime on 28/02/2016.
+ * Created by Jaime on 29/02/2016.
  */
 public class Aspirina extends Activity {
 
@@ -91,6 +91,7 @@ public class Aspirina extends Activity {
                 (EditText) findViewById(R.id.etG),
                 (EditText) findViewById(R.id.etH),
                 (EditText) findViewById(R.id.etI),
+                (EditText) findViewById(R.id.etJ),
         };
         checkBoxArray = new CheckBox[] {
 
@@ -103,6 +104,7 @@ public class Aspirina extends Activity {
                 (CheckBox) findViewById(R.id.cbG),
                 (CheckBox) findViewById(R.id.cbH),
                 (CheckBox) findViewById(R.id.cbI),
+                (CheckBox) findViewById(R.id.cbJ),
         };
 
         ly_stock = (LinearLayout) findViewById(R.id.lyStock);
@@ -176,21 +178,21 @@ public class Aspirina extends Activity {
         });
 
         loadActionControl();
-        checkBoxArray[8].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        checkBoxArray[9].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if ( isChecked )
                 {
-                    editTextArray[8].setText("1");
-                    editTextArray[8].setEnabled(true);
-                    editTextArray[8].requestFocus();
+                    editTextArray[9].setText("1");
+                    editTextArray[9].setEnabled(true);
+                    editTextArray[9].requestFocus();
                     // perform logic
                     tv_ComentarioOtros.setVisibility(View.VISIBLE);
                     et_ComentarioOtros.setEnabled(true);
                     et_ComentarioOtros.setVisibility(View.VISIBLE);
                 } else{
-                    editTextArray[8].setText("0");
-                    editTextArray[8].setEnabled(false);
+                    editTextArray[9].setText("0");
+                    editTextArray[9].setEnabled(false);
                     tv_ComentarioOtros.setVisibility(View.INVISIBLE);
                     et_ComentarioOtros.setEnabled(false);
                     et_ComentarioOtros.setVisibility(View.INVISIBLE);
@@ -302,8 +304,8 @@ public class Aspirina extends Activity {
 
                 }
 
-                if (checkBoxArray[8].isChecked()) {
-                    if(editTextArray[8].getText().equals("")){
+                if (checkBoxArray[9].isChecked()) {
+                    if(editTextArray[9].getText().equals("")){
                         Toast toast;
                         toast = Toast.makeText(MyActivity, R.string.message_priority_value_numeric , Toast.LENGTH_LONG);
                         toast.show();
@@ -312,7 +314,7 @@ public class Aspirina extends Activity {
 //                            vA = 1;
 //                            oA = String.valueOf(poll_id_2) + "f" + "-" + editTextArray[x].getText().toString(); //Dolocordralan Extra Fuerte
                         totalValores = totalValores + 1 ;
-                        totalOption = String.valueOf(poll_id_2) +  checkBoxArray[8].getTag().toString() + "-" + editTextArray[8].getText().toString()  + "|" + totalOption;
+                        totalOption = String.valueOf(poll_id_2) +  checkBoxArray[9].getTag().toString() + "-" + editTextArray[9].getText().toString()  + "|" + totalOption;
                     }
                 }
 
@@ -719,6 +721,21 @@ public class Aspirina extends Activity {
                 } else{
                     editTextArray[8].setText("0");
                     editTextArray[8].setEnabled(false);
+                }
+            }
+        });
+
+        checkBoxArray[9].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if ( isChecked )
+                {
+                    editTextArray[9].setText("1");
+                    editTextArray[9].setEnabled(true);
+                    editTextArray[9].requestFocus();
+                } else{
+                    editTextArray[9].setText("0");
+                    editTextArray[9].setEnabled(false);
                 }
             }
         });

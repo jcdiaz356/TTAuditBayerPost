@@ -104,6 +104,8 @@ public class Apronax extends Activity {
                 (EditText) findViewById(R.id.etO),
                 (EditText) findViewById(R.id.etP),
                 (EditText) findViewById(R.id.etQ),
+                (EditText) findViewById(R.id.etR),
+                (EditText) findViewById(R.id.etS),
         };
         checkBoxArray = new CheckBox[] {
                 (CheckBox) findViewById(R.id.cbA),
@@ -123,6 +125,8 @@ public class Apronax extends Activity {
                 (CheckBox) findViewById(R.id.cbO),
                 (CheckBox) findViewById(R.id.cbP),
                 (CheckBox) findViewById(R.id.cbQ),
+                (CheckBox) findViewById(R.id.cbR),
+                (CheckBox) findViewById(R.id.cbS),
         };
 
         ly_stock = (LinearLayout) findViewById(R.id.lyStock);
@@ -195,21 +199,21 @@ public class Apronax extends Activity {
         });
 
         loadActionControl();
-        checkBoxArray[16].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        checkBoxArray[18].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if ( isChecked )
                 {
-                    editTextArray[16].setText("1");
-                    editTextArray[16].setEnabled(true);
-                    editTextArray[16].requestFocus();
+                    editTextArray[18].setText("1");
+                    editTextArray[18].setEnabled(true);
+                    editTextArray[18].requestFocus();
                     // perform logic
                     tv_ComentarioOtros.setVisibility(View.VISIBLE);
                     et_ComentarioOtros.setEnabled(true);
                     et_ComentarioOtros.setVisibility(View.VISIBLE);
                 } else{
-                    editTextArray[16].setText("0");
-                    editTextArray[16].setEnabled(false);
+                    editTextArray[18].setText("0");
+                    editTextArray[18].setEnabled(false);
                     tv_ComentarioOtros.setVisibility(View.INVISIBLE);
                     et_ComentarioOtros.setEnabled(false);
                     et_ComentarioOtros.setVisibility(View.INVISIBLE);
@@ -319,8 +323,8 @@ public class Apronax extends Activity {
 
                 }
 
-                if (checkBoxArray[16].isChecked()) {
-                    if(editTextArray[16].getText().equals("")){
+                if (checkBoxArray[18].isChecked()) {
+                    if(editTextArray[18].getText().equals("")){
                         Toast toast;
                         toast = Toast.makeText(MyActivity, R.string.message_priority_value_numeric, Toast.LENGTH_LONG);
                         toast.show();
@@ -329,7 +333,7 @@ public class Apronax extends Activity {
 //                            vA = 1;
 //                            oA = String.valueOf(poll_id_2) + "f" + "-" + editTextArray[x].getText().toString(); //Dolocordralan Extra Fuerte
                         totalValores = totalValores + 1 ;
-                        totalOption = String.valueOf(poll_id_2) +  checkBoxArray[16].getTag().toString() + "-" + editTextArray[16].getText().toString()  + "|" + totalOption;
+                        totalOption = String.valueOf(poll_id_2) +  checkBoxArray[18].getTag().toString() + "-" + editTextArray[18].getText().toString()  + "|" + totalOption;
                     }
                 }
 
@@ -807,6 +811,34 @@ public class Apronax extends Activity {
         });
 
 
+        checkBoxArray[16].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if ( isChecked )
+                {
+                    editTextArray[16].setText("1");
+                    editTextArray[16].setEnabled(true);
+                    editTextArray[16].requestFocus();
+                } else{
+                    editTextArray[16].setText("0");
+                    editTextArray[16].setEnabled(false);
+                }
+            }
+        });
 
+        checkBoxArray[17].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if ( isChecked )
+                {
+                    editTextArray[17].setText("1");
+                    editTextArray[17].setEnabled(true);
+                    editTextArray[17].requestFocus();
+                } else{
+                    editTextArray[17].setText("0");
+                    editTextArray[17].setEnabled(false);
+                }
+            }
+        });
     }
 }
