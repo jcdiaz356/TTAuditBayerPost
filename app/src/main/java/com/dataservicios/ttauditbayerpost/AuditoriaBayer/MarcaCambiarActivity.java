@@ -12,11 +12,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-
-import java.util.HashMap;
 
 import com.dataservicios.ttauditbayerpost.Model.PollDetail;
 import com.dataservicios.ttauditbayerpost.R;
@@ -25,24 +24,22 @@ import com.dataservicios.ttauditbayerpost.util.AuditUtil;
 import com.dataservicios.ttauditbayerpost.util.GlobalConstant;
 import com.dataservicios.ttauditbayerpost.util.SessionManager;
 
-/**
- * Created by Jaime on 27/09/2016.
- */
-public class VariableImportante extends Activity {
+import java.util.HashMap;
 
+public class MarcaCambiarActivity extends Activity {
     private Activity MyActivity = this ;
-    private static final String LOG_TAG = VariableImportante.class.getSimpleName();
+    private static final String LOG_TAG = MarcaCambiarActivity.class.getSimpleName();
     private SessionManager session;
 
 
     private Button bt_guardar;
-    private EditText et_Comentario,etComent1;
+    private EditText etCommentOption;
 
     private LinearLayout lyContent;
 
 
 
-    private String tipo,cadenaruc, fechaRuta, comentario="", type, region;
+    private String tipo,cadenaruc, fechaRuta, comentario="", type, region , commentOptions="";
 
     private Integer user_id, company_id,store_id,rout_id,audit_id, product_id, poll_id, poll_id2;
 
@@ -58,14 +55,13 @@ public class VariableImportante extends Activity {
 
     private PollDetail pollDetail;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.variable_importante);
+        setContentView(R.layout.activity_marca_cambiar);
+
         getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setTitle("Variable importante");
+        getActionBar().setTitle("Tienda");
 
 
         lyContent = (LinearLayout) findViewById(R.id.lyContent);
@@ -73,7 +69,7 @@ public class VariableImportante extends Activity {
         bt_guardar = (Button) findViewById(R.id.btGuardar);
 
         //et_Comentario = (EditText) findViewById(R.id.etComentario);
-        etComent1 = (EditText) findViewById(R.id.etComent1);
+        etCommentOption = (EditText) findViewById(R.id.etCommentOption);
 
         Bundle bundle = getIntent().getExtras();
         company_id = bundle.getInt("company_id");
@@ -83,10 +79,10 @@ public class VariableImportante extends Activity {
         rout_id = bundle.getInt("rout_id");
         fechaRuta = bundle.getString("fechaRuta");
         audit_id = bundle.getInt("audit_id");
-        //product_id =bundle.getInt("product_id");
+        product_id =bundle.getInt("product_id");
 
         //poll_id = 562;
-        poll_id = GlobalConstant.poll_id[6];
+        poll_id = GlobalConstant.poll_id[8];
 
 
         //poll_id = 72 , solo para exhibiciones de bayer, directo de la base de datos
@@ -100,78 +96,111 @@ public class VariableImportante extends Activity {
         // id
         user_id = Integer.valueOf(user.get(SessionManager.KEY_ID_USER)) ;
 
+        checkBoxArray = new CheckBox[19];
 
-        if(tipo.equals("CADENA")) {
-            checkBoxArray = new CheckBox[5];
+        checkBoxArray[0] = new CheckBox(this);
+        checkBoxArray[1] = new CheckBox(this);
+        checkBoxArray[2] = new CheckBox(this);
+        checkBoxArray[3] = new CheckBox(this);
+        checkBoxArray[4] = new CheckBox(this);
+        checkBoxArray[5] = new CheckBox(this);
+        checkBoxArray[6] = new CheckBox(this);
+        checkBoxArray[7] = new CheckBox(this);
+        checkBoxArray[8] = new CheckBox(this);
+        checkBoxArray[9] = new CheckBox(this);
+        checkBoxArray[10] = new CheckBox(this);
+        checkBoxArray[11] = new CheckBox(this);
+        checkBoxArray[12] = new CheckBox(this);
+        checkBoxArray[13] = new CheckBox(this);
+        checkBoxArray[14] = new CheckBox(this);
+        checkBoxArray[15] = new CheckBox(this);
+        checkBoxArray[16] = new CheckBox(this);
+        checkBoxArray[17] = new CheckBox(this);
+        checkBoxArray[18] = new CheckBox(this);
 
-            checkBoxArray[0] = new CheckBox(this);
-            checkBoxArray[0].setText("INCENTIVOS / REGALOS");
-            checkBoxArray[0].setTag("a");
-            lyContent.addView(checkBoxArray[0]);
+        checkBoxArray[0].setText("Aflamax");
+        checkBoxArray[1].setText("Breflex");
+        checkBoxArray[2].setText("Dioxaflex");
+        checkBoxArray[3].setText("Dolgramin");
+        checkBoxArray[4].setText("Doloaproxol");
+        checkBoxArray[5].setText("Dolocordralan Extra Fuerte");
+        checkBoxArray[6].setText("Doloflam Extra Fuerte");
+        checkBoxArray[7].setText("Dologyna");
+        checkBoxArray[8].setText("Dolomuskqlar");
+        checkBoxArray[9].setText("Flogodisten");
+        checkBoxArray[10].setText("Iraxen");
+        checkBoxArray[11].setText("Maxiflam Forte");
+        checkBoxArray[12].setText("Miodel");
+        checkBoxArray[13].setText("Miofedrol");
+        checkBoxArray[14].setText("Miopress Forte");
+        checkBoxArray[15].setText("Naproxeno");
+        checkBoxArray[16].setText("Paldolor");
+        checkBoxArray[17].setText("Redex");
+        checkBoxArray[18].setText("Otros");
 
-            checkBoxArray[1] = new CheckBox(this);
-            checkBoxArray[1].setText("MARCA CONOCIDA / PRESTIGIO / EFECTIVIDAD");
-            checkBoxArray[1].setTag("b");
-            lyContent.addView(checkBoxArray[1]);
+        checkBoxArray[0].setTag("a");
+        checkBoxArray[1].setTag("b");
+        checkBoxArray[2].setTag("c");
+        checkBoxArray[3].setTag("d");
+        checkBoxArray[4].setTag("e");
+        checkBoxArray[5].setTag("f");
+        checkBoxArray[6].setTag("g");
+        checkBoxArray[7].setTag("h");
+        checkBoxArray[8].setTag("i");
+        checkBoxArray[9].setTag("j");
+        checkBoxArray[10].setTag("k");
+        checkBoxArray[11].setTag("l");
+        checkBoxArray[12].setTag("m");
+        checkBoxArray[13].setTag("n");
+        checkBoxArray[14].setTag("o");
+        checkBoxArray[15].setTag("p");
+        checkBoxArray[16].setTag("q");
+        checkBoxArray[17].setTag("r");
+        checkBoxArray[18].setTag("s");
 
-            checkBoxArray[2] = new CheckBox(this);
-            checkBoxArray[2].setText("PRECIO AL PUBLICO ACCESIBLE");
-            checkBoxArray[2].setTag("c");
-            lyContent.addView(checkBoxArray[2]);
+        lyContent.addView(checkBoxArray[0]);
+        lyContent.addView(checkBoxArray[1]);
+        lyContent.addView(checkBoxArray[2]);
+        lyContent.addView(checkBoxArray[3]);
+        lyContent.addView(checkBoxArray[4]);
+        lyContent.addView(checkBoxArray[5]);
+        lyContent.addView(checkBoxArray[6]);
+        lyContent.addView(checkBoxArray[7]);
+        lyContent.addView(checkBoxArray[8]);
+        lyContent.addView(checkBoxArray[9]);
+        lyContent.addView(checkBoxArray[10]);
+        lyContent.addView(checkBoxArray[11]);
+        lyContent.addView(checkBoxArray[12]);
+        lyContent.addView(checkBoxArray[13]);
+        lyContent.addView(checkBoxArray[14]);
+        lyContent.addView(checkBoxArray[15]);
+        lyContent.addView(checkBoxArray[16]);
+        lyContent.addView(checkBoxArray[17]);
+        lyContent.addView(checkBoxArray[18]);
 
-            checkBoxArray[3] = new CheckBox(this);
-            checkBoxArray[3].setText("ALTO STOCK");
-            checkBoxArray[3].setTag("d");
-            lyContent.addView(checkBoxArray[3]);
-
-            checkBoxArray[4] = new CheckBox(this);
-            checkBoxArray[4].setText("PUBLICIDAD");
-            checkBoxArray[4].setTag("e");
-            lyContent.addView(checkBoxArray[4]);
-
-        }  else if(tipo.equals("HORIZONTAL") || tipo.equals("DETALLISTA") || tipo.equals("MINI CADENAS")  || tipo.equals("SUB DISTRIBUIDOR")) {
-
-            checkBoxArray = new CheckBox[6];
-
-            checkBoxArray[0] = new CheckBox(this);
-            checkBoxArray[0].setText("MARCA CONOCIDA / PRESTIGIO / EFECTIVIDAD");
-            checkBoxArray[0].setTag("b");
-            lyContent.addView(checkBoxArray[0]);
-
-            checkBoxArray[1] = new CheckBox(this);
-            checkBoxArray[1].setText("ALTO MARGEN DE GANANCIA");
-            checkBoxArray[1].setTag("g");
-            lyContent.addView(checkBoxArray[1]);
-
-            checkBoxArray[2] = new CheckBox(this);
-            checkBoxArray[2].setText("INCENTIVOS / REGALOS");
-            checkBoxArray[2].setTag("a");
-            lyContent.addView(checkBoxArray[2]);
-
-            checkBoxArray[3] = new CheckBox(this);
-            checkBoxArray[3].setText("PRECIO AL PUBLICO ACCESIBLE");
-            checkBoxArray[3].setTag("c");
-            lyContent.addView(checkBoxArray[3]);
-
-            checkBoxArray[4] = new CheckBox(this);
-            checkBoxArray[4].setText("ALTO STOCK");
-            checkBoxArray[4].setTag("d");
-            lyContent.addView(checkBoxArray[4]);
-
-            checkBoxArray[5] = new CheckBox(this);
-            checkBoxArray[5].setText("PUBLICIDAD");
-            checkBoxArray[5].setTag("e");
-            lyContent.addView(checkBoxArray[5]);
-        }
+        etCommentOption.setHint("Comentario");
+        etCommentOption.setVisibility(View.GONE);
+        checkBoxArray[18].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (buttonView.isChecked()) {
 
 
+                    etCommentOption.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    etCommentOption.setVisibility(View.GONE);
+                }
+            }
+        });
 
         bt_guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
                 opt1 = "" ;
+                commentOptions="";
                 int contador = 0;
                 for (int x = 0; x < checkBoxArray.length; x++) {
                     if(checkBoxArray[x].isChecked()) contador ++;
@@ -181,10 +210,29 @@ public class VariableImportante extends Activity {
                     Toast.makeText(MyActivity,"Seleccionar una opción " , Toast.LENGTH_LONG).show();
                     return;
                 } else{
+//                    for (int x = 0; x < checkBoxArray.length; x++) {
+//                        if(checkBoxArray[x].isChecked())  {
+//                            opt1 = opt1 + poll_id.toString() + checkBoxArray[x].getTag() + "|";
+//                        }
+//                    }
+
                     for (int x = 0; x < checkBoxArray.length; x++) {
                         if(checkBoxArray[x].isChecked())  {
-                            opt1 = opt1 + poll_id.toString() + checkBoxArray[x].getTag() + "|";
+                            opt1 =  poll_id.toString() + checkBoxArray[x].getTag() + "|" + opt1 ;
 
+
+                        }
+                    }
+
+                    for (int x = 0; x < checkBoxArray.length; x++) {
+                        if(checkBoxArray[x].isChecked() ) {
+                            if(x==18) {
+                                commentOptions = etCommentOption.getText().toString() + "|" + commentOptions;
+                                //commentOptions = commentOptions + etCommentOption.getText().toString() + "|"  ;
+
+                            }else {
+                                commentOptions =   commentOptions + "|" ;
+                            }
                         }
                     }
 
@@ -216,9 +264,9 @@ public class VariableImportante extends Activity {
                         pollDetail.setPublicity_id(0);
                         pollDetail.setCompany_id(GlobalConstant.company_id);
                         pollDetail.setCategory_product_id(0);
-                        pollDetail.setCommentOptions(0);
+                        pollDetail.setCommentOptions(1);
                         pollDetail.setSelectdOptions(opt1);
-                        pollDetail.setSelectedOtionsComment("");
+                        pollDetail.setSelectedOtionsComment(commentOptions);
                         pollDetail.setPriority("0");
 
                         new loadPoll().execute();
@@ -271,12 +319,22 @@ public class VariableImportante extends Activity {
 
             if (result){
 
-//                Bundle argPDV = new Bundle();
-//                argPDV.putInt("store_id", Integer.valueOf(store_id));
-//                argPDV.putInt("road_id", Integer.valueOf(rout_id));
-//                Intent intent = new Intent(MyActivity, EncuestaRepLegalActivity.class);
-//                intent.putExtras(argPDV);
-//                startActivity(intent);
+                if(tipo.equals("HORIZONTAL") ||  tipo.equals("SUB DISTRIBUIDOR") ||  tipo.equals("DETALLISTA")) {
+                    Bundle argRuta = new Bundle();
+                    argRuta.clear();
+                    argRuta.putInt("company_id", company_id);
+                    argRuta.putInt("store_id",store_id);
+                    argRuta.putString("tipo", tipo);
+                    argRuta.putString("tipo", tipo);
+                    argRuta.putString("cadenaruc", cadenaruc);
+                    argRuta.putString("fechaRuta", fechaRuta);
+                    argRuta.putInt("audit_id", audit_id);
+                    argRuta.putInt("rout_id", rout_id);
+                    Intent intent;
+                    intent = new Intent(MyActivity, TieneCanestenActivity.class);
+                    intent.putExtras(argRuta);
+                    startActivity(intent);
+                }
                 finish();
 
             } else {

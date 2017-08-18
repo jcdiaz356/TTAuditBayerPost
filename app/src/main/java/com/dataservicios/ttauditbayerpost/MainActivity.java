@@ -346,6 +346,11 @@ public class MainActivity extends Activity {
         pd.setQuestion("¿Tengo una lesión en la pierna por jugar futbol, que pastilla me recomiendas que me desinflame?");
         db.createPollProductStore(pd);
 
+        pd.setIdProduct(534);
+        pd.setTypeStore("Mayoristas");
+        pd.setQuestion("¿Tengo una lesión en la pierna por jugar futbol, que pastilla me recomiendas que me desinflame?");
+        db.createPollProductStore(pd);
+
         //535 ASPIRINA 500
 
         pd.setIdProduct(535);
@@ -404,6 +409,11 @@ public class MainActivity extends Activity {
         pd.setQuestion("¿Tengo ardor, picazón,  en la zona vaginal, que me recomiendas para eso?");
         db.createPollProductStore(pd);
 
+        pd.setIdProduct(537);
+        pd.setTypeStore("Mayoristas");
+        pd.setQuestion("¿Tengo ardor, picazón,  en la zona vaginal, que me recomiendas para eso?");
+        db.createPollProductStore(pd);
+
 
         //536 Supradyn
         pd.setIdProduct(536);
@@ -431,6 +441,12 @@ public class MainActivity extends Activity {
         pd.setQuestion("¿Qué multivitaminico que me de energía me recomiendas?");
         db.createPollProductStore(pd);
 
+        pd.setIdProduct(536);
+        pd.setTypeStore("Mayoristas");
+        pd.setQuestion("¿Qué multivitaminico que me de energía me recomiendas?");
+        db.createPollProductStore(pd);
+
+
 
         //539 Redoxon
         pd.setIdProduct(539);
@@ -455,6 +471,11 @@ public class MainActivity extends Activity {
 
         pd.setIdProduct(539);
         pd.setTypeStore("CADENA");
+        pd.setQuestion("¿Que vitamina recomiendas para mejorar mis defensas y no resfriarme?");
+        db.createPollProductStore(pd);
+
+        pd.setIdProduct(539);
+        pd.setTypeStore("Mayoristas");
         pd.setQuestion("¿Que vitamina recomiendas para mejorar mis defensas y no resfriarme?");
         db.createPollProductStore(pd);
 
@@ -486,6 +507,10 @@ public class MainActivity extends Activity {
         pd.setQuestion("Y vitaminas para estar más concentrado en el trabajo...");
         db.createPollProductStore(pd);
 
+        pd.setIdProduct(540);
+        pd.setTypeStore("Mayoristas");
+        pd.setQuestion("Y vitaminas para estar más concentrado en el trabajo...");
+        db.createPollProductStore(pd);
 
         //538 ASPIRINA 100
 
@@ -511,6 +536,11 @@ public class MainActivity extends Activity {
 
         pd.setIdProduct(538);
         pd.setTypeStore("CADENA");
+        pd.setQuestion("Doctor/a estoy teniendo fuertes punzadas en el pecho, tengo un ritmo de vida desordenada, y he oído que puedo tener riesgo de infarto, ¿Que podría hacer para evitarlo? ");
+        db.createPollProductStore(pd);
+
+        pd.setIdProduct(538);
+        pd.setTypeStore("Mayoristas");
         pd.setQuestion("Doctor/a estoy teniendo fuertes punzadas en el pecho, tengo un ritmo de vida desordenada, y he oído que puedo tener riesgo de infarto, ¿Que podría hacer para evitarlo? ");
         db.createPollProductStore(pd);
 
@@ -545,6 +575,11 @@ public class MainActivity extends Activity {
         pd.setQuestion(" Necesito una crema que sea hidratante y además que me regenere la piel. ¿Qué me recomienda?");
         db.createPollProductStore(pd);
 
+        pd.setIdProduct(640);
+        pd.setTypeStore("Mayoristas");
+        pd.setQuestion(" Necesito una crema que sea hidratante y además que me regenere la piel. ¿Qué me recomienda?");
+        db.createPollProductStore(pd);
+
         //642 Supradyn Pro natal
 
         pd.setIdProduct(642);
@@ -574,6 +609,11 @@ public class MainActivity extends Activity {
 
         pd.setIdProduct(642);
         pd.setTypeStore("CADENA");
+        pd.setQuestion("¿Qué multivitamínico me recomienda para tomar si estoy embarazada?");
+        db.createPollProductStore(pd);
+
+        pd.setIdProduct(642);
+        pd.setTypeStore("Mayoristas");
         pd.setQuestion("¿Qué multivitamínico me recomienda para tomar si estoy embarazada?");
         db.createPollProductStore(pd);
 
@@ -611,6 +651,10 @@ public class MainActivity extends Activity {
         pd.setQuestion("Tengo pie de atleta ¿ Que me recomienda?");
         db.createPollProductStore(pd);
 
+        pd.setIdProduct(643);
+        pd.setTypeStore("Mayoristas");
+        pd.setQuestion("Tengo pie de atleta ¿ Que me recomienda?");
+        db.createPollProductStore(pd);
 
         //644 ASPIRINA FORTE
         pd.setIdProduct(644);
@@ -639,18 +683,23 @@ public class MainActivity extends Activity {
         pd.setQuestion("Tengo un dolor muy fuerte de cabeza, ¿Qué pastilla me puedes recomendar?");
         db.createPollProductStore(pd);
 
+        pd.setIdProduct(644);
+        pd.setTypeStore("Mayoristas");
+        pd.setQuestion("Tengo un dolor muy fuerte de cabeza, ¿Qué pastilla me puedes recomendar?");
+        db.createPollProductStore(pd);
+
 
         //645 Berocca + Supradyn
 
 
         pd.setIdProduct(645);
         pd.setTypeStore("HORIZONTAL");
-        pd.setQuestion("¿Qué multivitamínico que me de energía y mejore mi concentración me recomiendas?");
+        pd.setQuestion("¿ Qué producto para multivitamínico, me recomiendas que me otorgue mayor ganancia y buena rotación?");
         db.createPollProductStore(pd);
 
         pd.setIdProduct(645);
         pd.setTypeStore("SUB DISTRIBUIDOR");
-        pd.setQuestion("¿Qué multivitamínico que me de energía y mejore mi concentración me recomiendas?");
+        pd.setQuestion("¿ Qué producto multivitamínico, me recomiendas para  que me otorgue mayor ganancia y buena rotación ?");
         db.createPollProductStore(pd);
 
         pd.setIdProduct(645);
@@ -667,6 +716,13 @@ public class MainActivity extends Activity {
         pd.setTypeStore("CADENA");
         pd.setQuestion("¿Qué multivitamínico que me de energía y mejore mi concentración me recomiendas?");
         db.createPollProductStore(pd);
+
+
+        pd.setIdProduct(645);
+        pd.setTypeStore("Mayoristas");
+        pd.setQuestion("¿Qué multivitamínico que me de energía y mejore mi concentración me recomiendas?");
+        db.createPollProductStore(pd);
+
 
         List<PollProductStore> lispollProductStore =  new ArrayList<PollProductStore>();
         lispollProductStore = db.getAllPollProductStore();

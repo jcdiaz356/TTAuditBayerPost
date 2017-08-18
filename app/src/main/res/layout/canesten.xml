@@ -54,52 +54,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Canesten"
+                            android:tag="a"
                             android:padding="5dp"
                             android:layout_alignParentLeft="true"
                             android:layout_marginRight="8dp"
-                            android:id="@+id/cbProducto" />
-                        <EditText
-                            android:layout_width="42dp"
-                            android:layout_height="42dp"
-                            android:inputType="number"
-                            android:ems="10"
-                            android:text="0"
-                            android:enabled="false"
-                            android:id="@+id/etProducto"
-                            android:layout_toRightOf="@+id/cbProducto" />
-
-                    </RelativeLayout>
-
-                    <!--<RelativeLayout-->
-                    <!--android:layout_width="fill_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--&gt;-->
-                    <!--<CheckBox-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="XXXXXX"-->
-                    <!--android:padding="5dp"-->
-                    <!--android:id="@+id/cbTienda" />-->
-                    <!--<EditText-->
-                    <!--android:layout_width="42dp"-->
-                    <!--android:layout_height="42dp"-->
-                    <!--android:inputType="number"-->
-                    <!--android:ems="10"-->
-                    <!--android:text="0"-->
-                    <!--android:enabled="false"-->
-                    <!--android:id="@+id/etTienda"-->
-                    <!--android:layout_toRightOf="@+id/cbTienda"-->
-                    <!--/>-->
-                    <!--</RelativeLayout>-->
-                    <RelativeLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        >
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="LAMISIL"
-                            android:padding="5dp"
                             android:id="@+id/cbA" />
                         <EditText
                             android:layout_width="42dp"
@@ -109,9 +67,10 @@
                             android:text="0"
                             android:enabled="false"
                             android:id="@+id/etA"
-                            android:layout_toRightOf="@+id/cbA"
-                            />
+                            android:layout_toRightOf="@+id/cbA" />
+
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -119,9 +78,12 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="SILKA MEDIC"
+                            android:text="CLOTRIMAZOL "
+                            android:tag="b"
                             android:padding="5dp"
-                            android:id="@+id/cbB" />
+                            android:id="@+id/cbB"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentStart="true" />
                         <EditText
                             android:layout_width="42dp"
                             android:layout_height="42dp"
@@ -133,6 +95,7 @@
                             android:layout_toRightOf="@+id/cbB"
                             />
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -140,7 +103,8 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="LAFITIL"
+                            android:text="HONGOCID"
+                            android:tag="c"
                             android:padding="5dp"
                             android:id="@+id/cbC" />
                         <EditText
@@ -162,7 +126,8 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="HONGOCID"
+                            android:text="ICADEN "
+                            android:tag="d"
                             android:padding="5dp"
                             android:id="@+id/cbD" />
                         <EditText
@@ -184,7 +149,8 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="MICOLIS"
+                            android:text="LAFITIL"
+                            android:tag="e"
                             android:padding="5dp"
                             android:id="@+id/cbE" />
                         <EditText
@@ -206,7 +172,8 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="ICADEN "
+                            android:text="LAMISIL"
+                            android:tag="f"
                             android:padding="5dp"
                             android:id="@+id/cbF" />
                         <EditText
@@ -228,7 +195,8 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="CLOTRIMAZOL "
+                            android:text="MICOLIS"
+                            android:tag="g"
                             android:padding="5dp"
                             android:id="@+id/cbG" />
                         <EditText
@@ -243,8 +211,6 @@
                             />
                     </RelativeLayout>
 
-
-
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -252,7 +218,8 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Otros"
+                            android:text="SILKA MEDIC"
+                            android:tag="h"
                             android:padding="5dp"
                             android:id="@+id/cbH" />
                         <EditText
@@ -264,6 +231,29 @@
                             android:enabled="false"
                             android:id="@+id/etH"
                             android:layout_toRightOf="@+id/cbH"
+                            />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        >
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:tag="ai"
+                            android:text="Otros"
+                            android:padding="5dp"
+                            android:id="@+id/cbI" />
+                        <EditText
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:text="0"
+                            android:enabled="false"
+                            android:id="@+id/etI"
+                            android:layout_toRightOf="@+id/cbI"
                             />
                     </RelativeLayout>
 

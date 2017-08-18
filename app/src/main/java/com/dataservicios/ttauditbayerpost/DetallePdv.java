@@ -708,63 +708,6 @@ public class DetallePdv extends FragmentActivity {
         return true;
     }
 
-
-    private void insertaTiemporAuditoriaXX(JSONObject parametros) {
-        showpDialog();
-        JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.POST , GlobalConstant.dominio + "/insertaTiempo" ,parametros,
-                new Response.Listener<JSONObject>()
-                {
-                    @Override
-                    public void onResponse(JSONObject response)
-                    {
-                        Log.d("DATAAAA", response.toString());
-                        //adapter.notifyDataSetChanged();
-                        try {
-                            //String agente = response.getString("agentes");
-                            int success =  response.getInt("success");
-                            if (success == 1) {
-                                Log.d("DATAAAA", response.toString());
-                                Toast.makeText(MyActivity, "Se ", Toast.LENGTH_LONG).show();
-                                Bundle argument = new Bundle();
-                                argument.clear();
-                                argument.putInt("store_id", idPDV);
-                                argument.putInt("road_id", IdRuta);
-
-                                ProductScore ps = new ProductScore();
-                                ps = db.getProductScoreForStore(idPDV);
-
-
-                                if(ps.getAwards() == 1) {
-                                    Intent intent = new Intent(MyActivity,Premiacion.class);
-                                    intent.putExtras(argument);
-                                    startActivity(intent);
-                                }
-
-                                finish();
-
-                            } else {
-                                Toast.makeText(MyActivity, "No se ha podido enviar la información, intentelo mas tarde ", Toast.LENGTH_LONG).show();
-                            }
-                        } catch (JSONException e) {
-                            Toast.makeText(MyActivity, "No se ha podido enviar la información, intentelo mas tarde ", Toast.LENGTH_LONG).show();
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        //VolleyLog.d(TAG, "Error: " + error.getMessage());
-                        hidepDialog();
-                    }
-                }
-        );
-
-
-        AppController.getInstance().addToRequestQueue(jsObjRequest);
-
-
-    }
     @Override
     public void onBackPressed() {
         super.onBackPressed();

@@ -42,17 +42,18 @@ public class Exhibicion extends Activity {
     private SessionManager session;
     private Button bt_photo, bt_guardar;
     private TextView tv_Pregunta, tv_comentario, tv_comentarioNo;
-    private String tipo,cadenaruc,fechaRuta, comentario="";
+    private String tipo,cadenaruc,fechaRuta, comentario="", commentOptions ;
     private Integer user_id, company_id,store_id,rout_id,audit_id, product_id, poll_id;
 
     private DatabaseHelper db;
     private ProgressDialog pDialog;
 
 
-    private RadioGroup rgTipo;
-    private RadioButton rbSi,rbNo;
+    private RadioGroup              rgTipo;
+    private RadioButton             rbSi,rbNo;
 
-    private EditText et_comentario, et_comentarioNo;
+    private EditText                et_comentario, et_comentarioNo;
+    private EditText                etCommentOption;
     private CheckBox cbA,cbB,cbC,cbD,cbE,cbF,cbG,cbH,cbI,cbJ,cbK,cbL;
 
     private LinearLayout lySi , lyNo;
@@ -90,6 +91,7 @@ public class Exhibicion extends Activity {
 
         //DEl si
 
+
         checkBoxArray = new CheckBox[] {
                 (CheckBox) findViewById(R.id.cbA),
                 (CheckBox) findViewById(R.id.cbB),
@@ -100,7 +102,7 @@ public class Exhibicion extends Activity {
                 (CheckBox) findViewById(R.id.cbG),
                 (CheckBox) findViewById(R.id.cbH),
         };
-
+        etCommentOption     = new EditText(MyActivity);
 
 
 
@@ -178,6 +180,7 @@ public class Exhibicion extends Activity {
                 opt1="";
                 totalValores=0;
                 totalOption="";
+
                 long id = rgTipo.getCheckedRadioButtonId();
                 if (id == -1) {
                     //no item selected
@@ -288,7 +291,7 @@ public class Exhibicion extends Activity {
 
 
                        // comentario = String.valueOf(etComent.getText()) ;
-
+                        //commentOptions = etCommentOption.getText().toString();
                         pollDetail = new PollDetail();
                         pollDetail.setPoll_id(poll_id);
                         pollDetail.setStore_id(store_id);

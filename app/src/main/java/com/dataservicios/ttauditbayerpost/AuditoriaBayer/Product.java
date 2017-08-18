@@ -215,15 +215,41 @@ public class Product extends Activity {
 
                         ProductScore ps = new ProductScore();
                         ps = db.getProductScoreForStore(store_id);
+
                         int totalProductsScore = ps.getTotalProducts();
                         int totalExhibicionesScore = ps.getTotalExhibitions();
 
 
-                        if (totalProductsScore >= 3 ){
-                            awards = 1;
-                        }  else if (totalProductsScore ==2 && totalExhibicionesScore > 0){
-                            awards = 1;
+                        //--------------------------Logica de Premiacion ------------------------------
+                        if(tipo.equals("CADENA")  || tipo.equals("MINI CADENAS")) {
+                            if (totalProductsScore >= 1  && totalExhibicionesScore >= 1){
+                                awards = 1;
+                            }  else if (totalProductsScore >= 2 ){
+                                awards = 1;
+                            }
+
+//                            if (totalProductsScore >= 1  && totalExhibicionesScore >= 1){
+//                                awards = 1;
+//                            }
+
+                        } else if(tipo.equals("HORIZONTAL") || tipo.equals("DETALLISTA")   || tipo.equals("SUB DISTRIBUIDOR")) {
+
+                            if (totalProductsScore >= 1  && totalExhibicionesScore >= 1){
+                                awards = 1;
+                            }  else if (totalProductsScore >= 2 ){
+                                awards = 1;
+                            }
+
+//                            if (totalProductsScore >= 1 ){
+//                                awards = 1;
+//                            }
                         }
+
+//                        if (totalProductsScore >= 3 ){
+//                            awards = 1;
+//                        }  else if (totalProductsScore ==2 && totalExhibicionesScore > 0){
+//                            awards = 1;
+//                        }
 
 
                         db.updateProductScoreForAwards(store_id, awards);
@@ -326,9 +352,21 @@ public class Product extends Activity {
                     argPDV.putString("fechaRuta", fechaRuta);
                     argPDV.putInt("audit_id", audit_id);
                     //Intent intent = new Intent(MyActivity, Apronax275.class);
-                    Intent intent = new Intent(MyActivity, VariableImportante.class);
-                    intent.putExtras(argPDV);
-                    startActivity(intent);
+                    //Intent intent = new Intent(MyActivity, VariableImportante.class);
+                    //Intent intent = new Intent(MyActivity, TieneApronaxActivity.class);
+                    Intent intent = null;
+                    if(tipo.equals("CADENA")  || tipo.equals("MINI CADENAS")) {
+                        intent = new Intent(MyActivity, ConsumidorProductosIncentivadosActivity.class);
+                        intent.putExtras(argPDV);
+                        startActivity(intent);
+                    } else if(tipo.equals("DETALLISTA")) {
+                         intent = new Intent(MyActivity, TieneNaproxenoActivity.class);
+                        intent.putExtras(argPDV);
+                        startActivity(intent);
+                    } else  {
+
+
+                    }
                     finish();
 //                }
 

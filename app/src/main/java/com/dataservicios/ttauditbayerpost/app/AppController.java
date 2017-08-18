@@ -31,6 +31,7 @@ public class AppController extends Application {
 		super.onCreate();
 
 		Log.d(TAG, "onCreated");
+
 		startService(new Intent(this, UpdateServices.class));
 		startService(new Intent(this, MonitoGPSServices.class));
 		mInstance = this;

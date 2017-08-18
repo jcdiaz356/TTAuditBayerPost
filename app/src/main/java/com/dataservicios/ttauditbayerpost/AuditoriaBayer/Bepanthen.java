@@ -54,7 +54,7 @@ public class Bepanthen extends Activity {
     private String tipo,cadenaruc,fechaRuta, comentario="" ,comentarioOtros="";
     private Integer user_id, company_id,store_id,rout_id,audit_id, product_id, poll_id, poll_id_2,poll_id_3;
 
-    int  is_exhibidor=0, is_recomieda =0 , stock=0;
+    int  is_exhibidor=0, is_recomieda =0 , stock=0 ,is_priority=0;
 
     private DatabaseHelper db;
 
@@ -292,6 +292,7 @@ public class Bepanthen extends Activity {
                         return;
                     } else if (prioridad == 1 ||prioridad == 2 || prioridad == 3) {
                         is_recomieda=1;
+                        is_priority=prioridad;
                         totalValores = totalValores + 1 ;
                         totalOption = String.valueOf(poll_id_2) + "," + product_id + checkBoxArray[0].getTag().toString() + "-" + editTextArray[0].getText().toString()  + "|" + totalOption;  //Apronax
                         //vProducto = 1;
@@ -328,7 +329,7 @@ public class Bepanthen extends Activity {
 //                            vA = 1;
 //                            oA = String.valueOf(poll_id_2) + "f" + "-" + editTextArray[x].getText().toString(); //Dolocordralan Extra Fuerte
                         totalValores = totalValores + 1 ;
-                        totalOption = String.valueOf(poll_id_2) +  checkBoxArray[16].getTag().toString() + "-" + editTextArray[16].getText().toString()  + "|" + totalOption;
+                        totalOption = String.valueOf(poll_id_2) +  checkBoxArray[11].getTag().toString() + "-" + editTextArray[11].getText().toString()  + "|" + totalOption;
                     }
                 }
 
@@ -492,14 +493,33 @@ public class Bepanthen extends Activity {
                 //new loadPoll72().execute();
 
                 //////////////////////////////////////////////modificado///////////////////////////////////////////
-                        ProductScore ps = new ProductScore();
-                        if(is_recomieda==1) {
+//                        ProductScore ps = new ProductScore();
+//                        if(is_recomieda==1) {
+//
+//                            ps = db.getProductScoreForStore(store_id);
+//                            int total_products = 0 ;
+//                            total_products = 1  + ps.getTotalProducts();
+//                            db.updateProductScoreForTotalProducts(store_id,total_products);
+//                        }
 
-                            ps = db.getProductScoreForStore(store_id);
-                            int total_products = 0 ;
-                            total_products = 1  + ps.getTotalProducts();
-                            db.updateProductScoreForTotalProducts(store_id,total_products);
-                        }
+                ProductScore ps = new ProductScore();
+                if(tipo.equals("CADENA") || tipo.equals("MINI CADENAS") ) {
+                    if (is_recomieda == 1 ) {
+                        ps = db.getProductScoreForStore(store_id);
+                        int total_products = 0;
+                        total_products = 1 + ps.getTotalProducts();
+                        db.updateProductScoreForTotalProducts(store_id, total_products);
+
+                    }
+                } else if(tipo.equals("HORIZONTAL") || tipo.equals("DETALLISTA")  || tipo.equals("SUB DISTRIBUIDOR")) {
+                    if (is_recomieda == 1 & is_priority == 1) {
+                        ps = db.getProductScoreForStore(store_id);
+                        int total_products = 0;
+                        total_products = 1 + ps.getTotalProducts();
+                        db.updateProductScoreForTotalProducts(store_id, total_products);
+
+                    }
+                }
                 //////////////////////////////////////////////end///////////////////////////////////////////
 
                 finish();

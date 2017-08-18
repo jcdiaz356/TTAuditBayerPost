@@ -282,22 +282,26 @@
             android:name=".EditStore"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeAdminPanel" />
-
-        <activity android:name=".AuditoriaBayer.EncuestaRepLegalActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeAdminPanel"/>
-        <activity android:name=".AuditoriaBayer.EncuestaDiasInformacionActivity"
+        <activity
+            android:name=".AuditoriaBayer.EncuestaRepLegalActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeAdminPanel" />
-        <activity android:name=".AuditoriaBayer.EncuestaHorarioActivity"
+        <activity
+            android:name=".AuditoriaBayer.EncuestaDiasInformacionActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppThemeAdminPanel"/>
-        <activity android:name=".AuditoriaBayer.EncuestaRecibirInfoActivity"
+            android:theme="@style/AppThemeAdminPanel" />
+        <activity
+            android:name=".AuditoriaBayer.EncuestaHorarioActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppThemeAdminPanel"/>
-        <activity android:name=".AuditoriaBayer.EncuestaSugerenciaActivity"
+            android:theme="@style/AppThemeAdminPanel" />
+        <activity
+            android:name=".AuditoriaBayer.EncuestaRecibirInfoActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppThemeAdminPanel"></activity>
+            android:theme="@style/AppThemeAdminPanel" />
+        <activity
+            android:name=".AuditoriaBayer.EncuestaSugerenciaActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAdminPanel" />
 
         <uses-library
             android:name="com.google.android.maps"
@@ -309,13 +313,12 @@
         <!-- Key api Google Mode RELEASE -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyBK2tzzA4iaCQUeMqoQ1hkVLS8bvy_1X6Y"/>
-
+            android:value="AIzaSyBK2tzzA4iaCQUeMqoQ1hkVLS8bvy_1X6Y" />
 
         <!-- Key api Google Mode DEBUG -->
-        <!--<meta-data-->
-        <!--android:name="com.google.android.maps.v2.API_KEY"-->
-        <!--android:value="AIzaSyBK2tzzA4iaCQUeMqoQ1hkVLS8bvy_1X6Y" />-->
+        <!-- <meta-data -->
+        <!-- android:name="com.google.android.maps.v2.API_KEY" -->
+        <!-- android:value="AIzaSyBK2tzzA4iaCQUeMqoQ1hkVLS8bvy_1X6Y" /> -->
 
         <service
             android:name=".Services.UploadService"
@@ -323,14 +326,54 @@
         <service
             android:name=".Services.UpdateServices"
             android:label="UpateServices" />
-
         <service
             android:name=".Services.MonitoGPSServices"
             android:label="MonitoGPSServices" />
 
-
-
-
+        <activity
+            android:name=".AuditoriaBayer.TieneApronaxActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAdminPanel" />
+        <activity
+            android:name=".AuditoriaBayer.CambiarApronaxActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAdminPanel" />
+        <activity
+            android:name=".AuditoriaBayer.MarcaCambiarActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAdminPanel" />
+        <activity
+            android:name=".AuditoriaBayer.TieneCanestenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAdminPanel" />
+        <activity
+            android:name=".AuditoriaBayer.PorqueNoTieneCanesteActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAdminPanel" />
+        <activity
+            android:name=".AuditoriaBayer.TieneNaproxenoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAdminPanel" />
+        <activity
+            android:name=".AuditoriaBayer.CuantoCompraNaproxenoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAdminPanel" />
+        <activity
+            android:name=".AuditoriaBayer.CuantaPastillaBlisterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAdminPanel" />
+        <activity
+            android:name=".AuditoriaBayer.PrecioPastillaBlisterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAdminPanel" />
+        <activity
+            android:name=".AuditoriaBayer.ConsumidorProductosIncentivadosActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAdminPanel" />
+        <activity
+            android:name=".AuditoriaBayer.IntentaProductosIncentivadosActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAdminPanel" />
     </application>
 
 </manifest>
