@@ -691,7 +691,6 @@ public class MainActivity extends Activity {
 
         //645 Berocca + Supradyn
 
-
         pd.setIdProduct(645);
         pd.setTypeStore("HORIZONTAL");
         pd.setQuestion("¿ Qué producto para multivitamínico, me recomiendas que me otorgue mayor ganancia y buena rotación?");
@@ -721,6 +720,39 @@ public class MainActivity extends Activity {
         pd.setIdProduct(645);
         pd.setTypeStore("Mayoristas");
         pd.setQuestion("¿Qué multivitamínico que me de energía y mejore mi concentración me recomiendas?");
+        db.createPollProductStore(pd);
+
+        //844 Bepanthen Ungüento
+
+        pd.setIdProduct(844);
+        pd.setTypeStore("HORIZONTAL");
+        pd.setQuestion("Mi bebe /mi sobrino, mi ahijado …. tiene la piel irritada, tipo escaldadura en su potito. ¿Qué crema me recomiendas para solucionar esto?");
+        db.createPollProductStore(pd);
+
+        pd.setIdProduct(844);
+        pd.setTypeStore("SUB DISTRIBUIDOR");
+        pd.setQuestion("Mi bebe /mi sobrino, mi ahijado …. tiene la piel irritada, tipo escaldadura en su potito. ¿Qué crema me recomiendas para solucionar esto?");
+        db.createPollProductStore(pd);
+
+        pd.setIdProduct(844);
+        pd.setTypeStore("DETALLISTA");
+        pd.setQuestion("Mi bebe /mi sobrino, mi ahijado …. tiene la piel irritada, tipo escaldadura en su potito. ¿Qué crema me recomiendas para solucionar esto?");
+        db.createPollProductStore(pd);
+
+        pd.setIdProduct(844);
+        pd.setTypeStore("MINI CADENAS");
+        pd.setQuestion("Mi bebe /mi sobrino, mi ahijado …. tiene la piel irritada, tipo escaldadura en su potito. ¿Qué crema me recomiendas para solucionar esto?");
+        db.createPollProductStore(pd);
+
+        pd.setIdProduct(844);
+        pd.setTypeStore("CADENA");
+        pd.setQuestion("Mi bebe /mi sobrino, mi ahijado …. tiene la piel irritada, tipo escaldadura en su potito. ¿Qué crema me recomiendas para solucionar esto?");
+        db.createPollProductStore(pd);
+
+
+        pd.setIdProduct(844);
+        pd.setTypeStore("Mayoristas");
+        pd.setQuestion("Mi bebe /mi sobrino, mi ahijado …. tiene la piel irritada, tipo escaldadura en su potito. ¿Qué crema me recomiendas para solucionar esto?");
         db.createPollProductStore(pd);
 
 

@@ -55,7 +55,7 @@ public class Redoxon extends Activity {
     private String tipo,cadenaruc,fechaRuta, comentario="" ,comentarioOtros="";
     private Integer user_id, company_id,store_id,rout_id,audit_id, product_id, poll_id, poll_id_2,poll_id_3;
 
-    int  is_exhibidor=0, is_recomieda =0 , stock=0;
+    int  is_exhibidor=0, is_recomieda =0 , stock=0 ,is_priority=0;;
 
     private DatabaseHelper db;
 
@@ -282,6 +282,7 @@ public class Redoxon extends Activity {
                         return;
                     } else if (prioridad == 1 ||prioridad == 2 || prioridad == 3) {
                         is_recomieda=1;
+                        is_priority=prioridad;
                         totalValores = totalValores + 1 ;
                         totalOption = String.valueOf(poll_id_2) + "," + product_id + checkBoxArray[0].getTag().toString() + "-" + editTextArray[0].getText().toString()  + "|" + totalOption;  //Apronax
                         //vProducto = 1;
@@ -478,12 +479,30 @@ public class Redoxon extends Activity {
             if (result){
 //////////////////////////////////////////////modificado///////////////////////////////////////////
                 ProductScore ps = new ProductScore();
-                if(is_recomieda==1) {
+//                if(is_recomieda==1) {
+//
+//                    ps = db.getProductScoreForStore(store_id);
+//                    int total_products = 0 ;
+//                    total_products = 1  + ps.getTotalProducts();
+//                    db.updateProductScoreForTotalProducts(store_id,total_products);
+//                }
 
-                    ps = db.getProductScoreForStore(store_id);
-                    int total_products = 0 ;
-                    total_products = 1  + ps.getTotalProducts();
-                    db.updateProductScoreForTotalProducts(store_id,total_products);
+                if(tipo.equals("CADENA") || tipo.equals("MINI CADENAS") ) {
+                    if (is_recomieda == 1 ) {
+                        ps = db.getProductScoreForStore(store_id);
+                        int total_products = 0;
+                        total_products = 1 + ps.getTotalProducts();
+                        db.updateProductScoreForTotalProducts(store_id, total_products);
+
+                    }
+                } else if(tipo.equals("HORIZONTAL") || tipo.equals("DETALLISTA")  || tipo.equals("SUB DISTRIBUIDOR")) {
+                    if (is_recomieda == 1 & is_priority == 1) {
+                        ps = db.getProductScoreForStore(store_id);
+                        int total_products = 0;
+                        total_products = 1 + ps.getTotalProducts();
+                        db.updateProductScoreForTotalProducts(store_id, total_products);
+
+                    }
                 }
 //////////////////////////////////////////////modificado///////////////////////////////////////////
 

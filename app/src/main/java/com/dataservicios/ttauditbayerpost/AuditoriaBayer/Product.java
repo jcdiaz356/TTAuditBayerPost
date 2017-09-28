@@ -355,18 +355,23 @@ public class Product extends Activity {
                     //Intent intent = new Intent(MyActivity, VariableImportante.class);
                     //Intent intent = new Intent(MyActivity, TieneApronaxActivity.class);
                     Intent intent = null;
-                    if(tipo.equals("CADENA")  || tipo.equals("MINI CADENAS")) {
-                        intent = new Intent(MyActivity, ConsumidorProductosIncentivadosActivity.class);
-                        intent.putExtras(argPDV);
-                        startActivity(intent);
-                    } else if(tipo.equals("DETALLISTA")) {
-                         intent = new Intent(MyActivity, TieneNaproxenoActivity.class);
-                        intent.putExtras(argPDV);
-                        startActivity(intent);
-                    } else  {
 
+//                    if(tipo.equals("CADENA")  || tipo.equals("MINI CADENAS")) {
+//                        intent = new Intent(MyActivity, ConsumidorProductosIncentivadosActivity.class);
+//                        intent.putExtras(argPDV);
+//                        startActivity(intent);
+//                    } else if(tipo.equals("DETALLISTA")) {
+//                         intent = new Intent(MyActivity, TieneNaproxenoActivity.class);
+//                        intent.putExtras(argPDV);
+//                        startActivity(intent);
+//                    } else  {
+//
+//
+//                    }
 
-                    }
+                    intent = new Intent(MyActivity, NoDolocordralanActivity.class);
+                    intent.putExtras(argPDV);
+                    startActivity(intent);
                     finish();
 //                }
 

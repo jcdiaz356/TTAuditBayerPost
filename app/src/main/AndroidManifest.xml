@@ -374,6 +374,25 @@
             android:name=".AuditoriaBayer.IntentaProductosIncentivadosActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeAdminPanel" />
+        <activity android:name=".AuditoriaBayer.NoDolocordralanActivity" android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAdminPanel"/>
+        <activity android:name=".AuditoriaBayer.DoloneurobionPromocionActivity" android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAdminPanel"/>
+        <activity android:name=".AuditoriaBayer.DoloneurobionActividadesActivity" android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAdminPanel"/>
+        <activity android:name=".AuditoriaBayer.DoloneurobionVisitaActivity" android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAdminPanel"></activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.dataservicios.ttauditbayerpost.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
     </application>
 
 </manifest>
