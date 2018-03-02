@@ -451,7 +451,7 @@ public class Redoxon extends Activity {
                 if(! InsertAuditPollsProduct(poll_id_3,0, stock, "")) return false;
             } else if(is_recomieda==1) {
                 //Enviando por defecto estock 1
-                if(!InsertAuditPollsProduct(poll_id_3,0,1,"")) return false;
+                if(!InsertAuditPollsProduct(poll_id_3,0,stock,"")) return false;
             }
 //            Intent intent = new Intent("com.dataservicios.redagenteglobalapp.LOGIN");
 //            startActivity(intent);

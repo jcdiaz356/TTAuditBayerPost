@@ -449,10 +449,10 @@ public class Canesten extends Activity {
             if(!InsertAuditPollsOtions(poll_id_2, 0, 0, ""))return false;
             if(is_recomieda==0){
                 //Enviando por defecto estock segun el swich que marco
-                if(!InsertAuditPollsProduct(poll_id_3, 0, stock, "")) return false;
+                if(!InsertAuditPollsProduct(poll_id_3, 0,stock, "")) return false;
             } else if(is_recomieda==1) {
                 //Enviando por defecto estock 1
-                if(!InsertAuditPollsProduct(poll_id_3,0,1,"")) return false;
+                if(!InsertAuditPollsProduct(poll_id_3,0,stock,"")) return false;
             }
 
             return true;
