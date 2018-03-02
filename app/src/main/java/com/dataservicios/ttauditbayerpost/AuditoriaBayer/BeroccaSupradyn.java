@@ -57,7 +57,7 @@ public class BeroccaSupradyn extends Activity {
 
 
     private String tipo,cadenaruc,fechaRuta, comentario="" ,comentarioOtros="";
-    private Integer user_id, company_id,store_id,rout_id,audit_id, product_id, poll_id, poll_id_2,poll_id_3;
+    private Integer user_id, company_id,store_id,rout_id,audit_id, product_id, poll_id, poll_id_2,poll_id_3,indexCheckBoxOtros;
 
     int  is_exhibidor=0, is_recomieda =0 , stock=0 ,is_priority=0;
 
@@ -203,36 +203,37 @@ public class BeroccaSupradyn extends Activity {
                     editTextArray[0].setText("1");
                     editTextArray[0].setEnabled(true);
                     editTextArray[0].requestFocus();
-                    tvStock.setVisibility(View.INVISIBLE);
-                    sw_stock.setEnabled(false);
-                    sw_stock.setVisibility(View.INVISIBLE);
+//                    tvStock.setVisibility(View.INVISIBLE);
+//                    sw_stock.setEnabled(false);
+//                    sw_stock.setVisibility(View.INVISIBLE);
                 } else{
                     editTextArray[0].setText("0");
                     editTextArray[0].setEnabled(false);
 
-                    tvStock.setVisibility(View.VISIBLE);
-                    sw_stock.setEnabled(true);
-                    sw_stock.setVisibility(View.VISIBLE);
+//                    tvStock.setVisibility(View.VISIBLE);
+//                    sw_stock.setEnabled(true);
+//                    sw_stock.setVisibility(View.VISIBLE);
                 }
             }
         });
 
         loadActionControl();
-        checkBoxArray[23].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        indexCheckBoxOtros = checkBoxArray.length - 1;
+        checkBoxArray[indexCheckBoxOtros].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if ( isChecked )
                 {
-                    editTextArray[23].setText("1");
-                    editTextArray[23].setEnabled(true);
-                    editTextArray[23].requestFocus();
+                    editTextArray[indexCheckBoxOtros].setText("1");
+                    editTextArray[indexCheckBoxOtros].setEnabled(true);
+                    editTextArray[indexCheckBoxOtros].requestFocus();
                     // perform logic
                     tv_ComentarioOtros.setVisibility(View.VISIBLE);
                     et_ComentarioOtros.setEnabled(true);
                     et_ComentarioOtros.setVisibility(View.VISIBLE);
                 } else{
-                    editTextArray[23].setText("0");
-                    editTextArray[23].setEnabled(false);
+                    editTextArray[indexCheckBoxOtros].setText("0");
+                    editTextArray[indexCheckBoxOtros].setEnabled(false);
                     tv_ComentarioOtros.setVisibility(View.INVISIBLE);
                     et_ComentarioOtros.setEnabled(false);
                     et_ComentarioOtros.setVisibility(View.INVISIBLE);
@@ -348,8 +349,8 @@ public class BeroccaSupradyn extends Activity {
 
                 }
 
-                if (checkBoxArray[23].isChecked()) {
-                    if(editTextArray[23].getText().equals("")){
+                if (checkBoxArray[indexCheckBoxOtros].isChecked()) {
+                    if(editTextArray[indexCheckBoxOtros].getText().equals("")){
                         Toast toast;
                         toast = Toast.makeText(MyActivity, R.string.message_priority_value_numeric , Toast.LENGTH_LONG);
                         toast.show();
@@ -358,7 +359,7 @@ public class BeroccaSupradyn extends Activity {
 //                            vA = 1;
 //                            oA = String.valueOf(poll_id_2) + "f" + "-" + editTextArray[x].getText().toString(); //Dolocordralan Extra Fuerte
                         totalValores = totalValores + 1 ;
-                        totalOption = String.valueOf(poll_id_2) +  checkBoxArray[23].getTag().toString() + "-" + editTextArray[23].getText().toString()  + "|" + totalOption;
+                        totalOption = String.valueOf(poll_id_2) +  checkBoxArray[indexCheckBoxOtros].getTag().toString() + "-" + editTextArray[indexCheckBoxOtros].getText().toString()  + "|" + totalOption;
                     }
                 }
 
@@ -481,13 +482,13 @@ public class BeroccaSupradyn extends Activity {
             if(!InsertAuditPollsProduct(poll_id,0,is_recomieda,comentario)) return false;
 
             if(!InsertAuditPollsOtions(poll_id_2, 0, 0, ""))return false;
-            if(is_recomieda==0){
+//            if(is_recomieda==0){
                 //Enviando por defecto estock segun el swich que marco
                 if(!InsertAuditPollsProduct(poll_id_3, 0, stock, "")) return false;
-            } else if(is_recomieda==1) {
-                //Enviando por defecto estock 1
-                if(!InsertAuditPollsProduct(poll_id_3,0,1,"")) return false;
-            }
+//            } else if(is_recomieda==1) {
+//                //Enviando por defecto estock 1
+//                if(!InsertAuditPollsProduct(poll_id_3,0,1,"")) return false;
+//            }
 
             return true;
         }
@@ -503,16 +504,16 @@ public class BeroccaSupradyn extends Activity {
 
                 //////////////////////////////////////////////modificado///////////////////////////////////////////
                 ProductScore ps = new ProductScore();
-                if(tipo.equals("CADENA") || tipo.equals("MINI CADENAS") ) {
-                    if (is_recomieda == 1 ) {
+                if(tipo.equals("CADENA")|| tipo.equals("MINI CADENAS")) {
+                    if (is_recomieda == 1 && is_priority == 1 || is_priority == 2 ) {
                         ps = db.getProductScoreForStore(store_id);
                         int total_products = 0;
                         total_products = 1 + ps.getTotalProducts();
                         db.updateProductScoreForTotalProducts(store_id, total_products);
 
                     }
-                } else if(tipo.equals("HORIZONTAL") || tipo.equals("DETALLISTA")  || tipo.equals("SUB DISTRIBUIDOR")) {
-                    if (is_recomieda == 1 & is_priority == 1) {
+                } else if(tipo.equals("HORIZONTAL") || tipo.equals("DETALLISTA")   || tipo.equals("SUB DISTRIBUIDOR")  || tipo.equals("Mayoristas")) {
+                    if (is_recomieda == 1 && is_priority == 1) {
                         ps = db.getProductScoreForStore(store_id);
                         int total_products = 0;
                         total_products = 1 + ps.getTotalProducts();
@@ -635,358 +636,24 @@ public class BeroccaSupradyn extends Activity {
 
     private void loadActionControl(){
 
-        checkBoxArray[1].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[1].setText("1");
-                    editTextArray[1].setEnabled(true);
-                    editTextArray[1].requestFocus();
-                } else{
-                    editTextArray[1].setText("0");
-                    editTextArray[1].setEnabled(false);
+        for (int x = 1; x < checkBoxArray.length - 1; x++) {
+            final int finalX = x;
+            checkBoxArray[x].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if ( isChecked )
+                    {
+                        editTextArray[finalX].setText("1");
+                        editTextArray[finalX].setEnabled(true);
+                        editTextArray[finalX].requestFocus();
+                    } else{
+                        editTextArray[finalX].setText("0");
+                        editTextArray[finalX].setEnabled(false);
+                    }
                 }
-            }
-        });
+            });
 
-        checkBoxArray[2].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[2].setText("1");
-                    editTextArray[2].setEnabled(true);
-                    editTextArray[2].requestFocus();
-                } else{
-                    editTextArray[2].setText("0");
-                    editTextArray[2].setEnabled(false);
-                }
-            }
-        });
-
-        checkBoxArray[3].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[3].setText("1");
-                    editTextArray[3].setEnabled(true);
-                    editTextArray[3].requestFocus();
-                } else{
-                    editTextArray[3].setText("0");
-                    editTextArray[3].setEnabled(false);
-                }
-            }
-        });
-
-        checkBoxArray[4].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[4].setText("1");
-                    editTextArray[4].setEnabled(true);
-                    editTextArray[4].requestFocus();
-                } else{
-                    editTextArray[4].setText("0");
-                    editTextArray[4].setEnabled(false);
-                }
-            }
-        });
-
-        checkBoxArray[5].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[5].setText("1");
-                    editTextArray[5].setEnabled(true);
-                    editTextArray[5].requestFocus();
-                } else{
-                    editTextArray[5].setText("0");
-                    editTextArray[5].setEnabled(false);
-                }
-            }
-        });
-
-        checkBoxArray[6].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[6].setText("1");
-                    editTextArray[6].setEnabled(true);
-                    editTextArray[6].requestFocus();
-                } else{
-                    editTextArray[6].setText("0");
-                    editTextArray[6].setEnabled(false);
-                }
-            }
-        });
-
-        checkBoxArray[7].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[7].setText("1");
-                    editTextArray[7].setEnabled(true);
-                    editTextArray[7].requestFocus();
-                } else{
-                    editTextArray[7].setText("0");
-                    editTextArray[7].setEnabled(false);
-                }
-            }
-        });
-
-        checkBoxArray[8].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[8].setText("1");
-                    editTextArray[8].setEnabled(true);
-                    editTextArray[8].requestFocus();
-                } else{
-                    editTextArray[8].setText("0");
-                    editTextArray[8].setEnabled(false);
-                }
-            }
-        });
-
-        checkBoxArray[9].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[9].setText("1");
-                    editTextArray[9].setEnabled(true);
-                    editTextArray[9].requestFocus();
-                } else{
-                    editTextArray[9].setText("0");
-                    editTextArray[9].setEnabled(false);
-                }
-            }
-        });
-
-        checkBoxArray[10].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[10].setText("1");
-                    editTextArray[10].setEnabled(true);
-                    editTextArray[10].requestFocus();
-                } else{
-                    editTextArray[10].setText("0");
-                    editTextArray[10].setEnabled(false);
-                }
-            }
-        });
-
-
-        checkBoxArray[11].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[11].setText("1");
-                    editTextArray[11].setEnabled(true);
-                    editTextArray[11].requestFocus();
-                } else{
-                    editTextArray[11].setText("0");
-                    editTextArray[11].setEnabled(false);
-                }
-            }
-        });
-
-
-        checkBoxArray[12].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[12].setText("1");
-                    editTextArray[12].setEnabled(true);
-                    editTextArray[12].requestFocus();
-                } else{
-                    editTextArray[12].setText("0");
-                    editTextArray[12].setEnabled(false);
-                }
-            }
-        });
-
-        checkBoxArray[13].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[13].setText("1");
-                    editTextArray[13].setEnabled(true);
-                    editTextArray[13].requestFocus();
-                } else{
-                    editTextArray[13].setText("0");
-                    editTextArray[13].setEnabled(false);
-                }
-            }
-        });
-
-
-        checkBoxArray[14].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[14].setText("1");
-                    editTextArray[14].setEnabled(true);
-                    editTextArray[14].requestFocus();
-                } else{
-                    editTextArray[14].setText("0");
-                    editTextArray[14].setEnabled(false);
-                }
-            }
-        });
-
-        checkBoxArray[15].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[15].setText("1");
-                    editTextArray[15].setEnabled(true);
-                    editTextArray[15].requestFocus();
-                } else{
-                    editTextArray[15].setText("0");
-                    editTextArray[15].setEnabled(false);
-                }
-            }
-        });
-
-
-        checkBoxArray[16].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[16].setText("1");
-                    editTextArray[16].setEnabled(true);
-                    editTextArray[16].requestFocus();
-                } else{
-                    editTextArray[16].setText("0");
-                    editTextArray[16].setEnabled(false);
-                }
-            }
-        });
-
-
-        checkBoxArray[17].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[17].setText("1");
-                    editTextArray[17].setEnabled(true);
-                    editTextArray[17].requestFocus();
-                } else{
-                    editTextArray[17].setText("0");
-                    editTextArray[17].setEnabled(false);
-                }
-            }
-        });
-
-        checkBoxArray[18].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[18].setText("1");
-                    editTextArray[18].setEnabled(true);
-                    editTextArray[18].requestFocus();
-                } else{
-                    editTextArray[18].setText("0");
-                    editTextArray[18].setEnabled(false);
-                }
-            }
-        });
-
-
-        checkBoxArray[19].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[19].setText("1");
-                    editTextArray[19].setEnabled(true);
-                    editTextArray[19].requestFocus();
-                } else{
-                    editTextArray[19].setText("0");
-                    editTextArray[19].setEnabled(false);
-                }
-            }
-        });
-
-        checkBoxArray[20].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[20].setText("1");
-                    editTextArray[20].setEnabled(true);
-                    editTextArray[20].requestFocus();
-                } else{
-                    editTextArray[20].setText("0");
-                    editTextArray[20].setEnabled(false);
-                }
-            }
-        });
-
-        checkBoxArray[21].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[21].setText("1");
-                    editTextArray[21].setEnabled(true);
-                    editTextArray[21].requestFocus();
-                } else{
-                    editTextArray[21].setText("0");
-                    editTextArray[21].setEnabled(false);
-                }
-            }
-        });
-
-        checkBoxArray[22].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[22].setText("1");
-                    editTextArray[22].setEnabled(true);
-                    editTextArray[22].requestFocus();
-                } else{
-                    editTextArray[22].setText("0");
-                    editTextArray[22].setEnabled(false);
-                }
-            }
-        });
-
-        checkBoxArray[23].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[23].setText("1");
-                    editTextArray[23].setEnabled(true);
-                    editTextArray[23].requestFocus();
-                } else{
-                    editTextArray[23].setText("0");
-                    editTextArray[23].setEnabled(false);
-                }
-            }
-        });
-
-
+        }
     }
 }
 

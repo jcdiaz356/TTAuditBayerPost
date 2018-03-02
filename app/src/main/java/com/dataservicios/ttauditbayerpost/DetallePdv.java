@@ -343,20 +343,20 @@ public class DetallePdv extends FragmentActivity {
             // dismiss the dialog once product deleted
 
             if (result){
-                Bundle argument = new Bundle();
-                argument.clear();
-                argument.putInt("store_id", idPDV);
-                argument.putInt("road_id", IdRuta);
-
-                ProductScore ps = new ProductScore();
-                ps = db.getProductScoreForStore(idPDV);
-
-
-                if(ps.getAwards() == 1) {
-                    Intent intent = new Intent(MyActivity,Premiacion.class);
-                    intent.putExtras(argument);
-                    startActivity(intent);
-                }
+//                Bundle argument = new Bundle();
+//                argument.clear();
+//                argument.putInt("store_id", idPDV);
+//                argument.putInt("road_id", IdRuta);
+//
+//                ProductScore ps = new ProductScore();
+//                ps = db.getProductScoreForStore(idPDV);
+//
+//
+//                if(ps.getAwards() == 1) {
+//                    Intent intent = new Intent(MyActivity,Premiacion.class);
+//                    intent.putExtras(argument);
+//                    startActivity(intent);
+//                }
 
                 finish();
             } else {

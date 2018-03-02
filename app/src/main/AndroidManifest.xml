@@ -374,14 +374,22 @@
             android:name=".AuditoriaBayer.IntentaProductosIncentivadosActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeAdminPanel" />
-        <activity android:name=".AuditoriaBayer.NoDolocordralanActivity" android:screenOrientation="portrait"
-            android:theme="@style/AppThemeAdminPanel"/>
-        <activity android:name=".AuditoriaBayer.DoloneurobionPromocionActivity" android:screenOrientation="portrait"
-            android:theme="@style/AppThemeAdminPanel"/>
-        <activity android:name=".AuditoriaBayer.DoloneurobionActividadesActivity" android:screenOrientation="portrait"
-            android:theme="@style/AppThemeAdminPanel"/>
-        <activity android:name=".AuditoriaBayer.DoloneurobionVisitaActivity" android:screenOrientation="portrait"
-            android:theme="@style/AppThemeAdminPanel"></activity>
+        <activity
+            android:name=".AuditoriaBayer.NoDolocordralanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAdminPanel" />
+        <activity
+            android:name=".AuditoriaBayer.DoloneurobionPromocionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAdminPanel" />
+        <activity
+            android:name=".AuditoriaBayer.DoloneurobionActividadesActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAdminPanel" />
+        <activity
+            android:name=".AuditoriaBayer.DoloneurobionVisitaActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAdminPanel" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -393,6 +401,8 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
+        <activity android:name=".AuditoriaBayer.BepanthenUnguentoActivity" android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAdminPanel" />
     </application>
 
 </manifest>

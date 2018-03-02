@@ -178,6 +178,12 @@ public class Product extends Activity {
                     intent = new Intent(MyActivity, BeroccaSupradyn.class);
                 }
 
+
+                //BEROCCA + SUPRADYN
+                if (product_id.equals("844")){
+                    intent = new Intent(MyActivity, BepanthenUnguentoActivity.class);
+                }
+
                 //Intent intent = new Intent(MyActivity, BayerPoll.class);
                 intent.putExtras(argPDV);
                 startActivity(intent);
@@ -219,30 +225,25 @@ public class Product extends Activity {
                         int totalProductsScore = ps.getTotalProducts();
                         int totalExhibicionesScore = ps.getTotalExhibitions();
 
-
-                        //--------------------------Logica de Premiacion ------------------------------
+//                        --------------------------Logica de Premiacion ------------------------------
                         if(tipo.equals("CADENA")  || tipo.equals("MINI CADENAS")) {
-                            if (totalProductsScore >= 1  && totalExhibicionesScore >= 1){
+//                            if (totalProductsScore == 1  && totalExhibicionesScore >= 1){
+//                                awards = 1;
+//                            }  else if (totalProductsScore >= 2 ){
+//                                awards = 1;
+//                            }
+                            if (totalProductsScore >= 2 ){
+                                awards = 1;
+                            }
+
+                        } if(tipo.equals("HORIZONTAL") || tipo.equals("DETALLISTA")   || tipo.equals("SUB DISTRIBUIDOR")  || tipo.equals("Mayoristas")) {
+
+                            if (totalProductsScore == 1  && totalExhibicionesScore >= 1){
                                 awards = 1;
                             }  else if (totalProductsScore >= 2 ){
                                 awards = 1;
                             }
 
-//                            if (totalProductsScore >= 1  && totalExhibicionesScore >= 1){
-//                                awards = 1;
-//                            }
-
-                        } else if(tipo.equals("HORIZONTAL") || tipo.equals("DETALLISTA")   || tipo.equals("SUB DISTRIBUIDOR")) {
-
-                            if (totalProductsScore >= 1  && totalExhibicionesScore >= 1){
-                                awards = 1;
-                            }  else if (totalProductsScore >= 2 ){
-                                awards = 1;
-                            }
-
-//                            if (totalProductsScore >= 1 ){
-//                                awards = 1;
-//                            }
                         }
 
 //                        if (totalProductsScore >= 3 ){
@@ -251,6 +252,12 @@ public class Product extends Activity {
 //                            awards = 1;
 //                        }
 
+
+//                        if (totalProductsScore >= 1  && totalExhibicionesScore >= 1){
+//                            awards = 1;
+//                        }  else if (totalProductsScore >= 2 ){
+//                            awards = 1;
+//                        }
 
                         db.updateProductScoreForAwards(store_id, awards);
                         new closeAuditProducts().execute();
@@ -369,9 +376,9 @@ public class Product extends Activity {
 //
 //                    }
 
-                    intent = new Intent(MyActivity, NoDolocordralanActivity.class);
-                    intent.putExtras(argPDV);
-                    startActivity(intent);
+//                    intent = new Intent(MyActivity, NoDolocordralanActivity.class);
+//                    intent.putExtras(argPDV);
+//                    startActivity(intent);
                     finish();
 //                }
 
@@ -428,7 +435,6 @@ public class Product extends Activity {
             params.put("company_id", String.valueOf(company_id));
             params.put("audit_id", String.valueOf(audit_id));
             params.put("user_id", String.valueOf(user_id));
-
 
             JSONParserX jsonParser = new JSONParserX();
             // getting product details by making HTTP request

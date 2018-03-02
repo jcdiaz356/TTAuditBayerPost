@@ -33,14 +33,14 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="fill_parent"
-                    android:layout_height="900dp"
+                    android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:id="@+id/lyProductos"
                     android:weightSum="1">
@@ -434,6 +434,207 @@
                             />
                     </RelativeLayout>
 
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Artrigan Plus"
+                            android:tag="u"
+                            android:padding="5dp"
+                            android:id="@+id/cbS" />
+                        <EditText
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/etS"
+                            android:enabled="false"
+                            android:text="0"
+                            android:layout_toRightOf="@+id/cbS"
+                            />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Debrox"
+                            android:tag="t"
+                            android:padding="5dp"
+                            android:id="@+id/cbT" />
+                        <EditText
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/etT"
+                            android:enabled="false"
+                            android:text="0"
+                            android:layout_toRightOf="@+id/cbT"
+                            />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Diclofenaco"
+                            android:tag="aa"
+                            android:padding="5dp"
+                            android:id="@+id/cbU" />
+                        <EditText
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/etU"
+                            android:enabled="false"
+                            android:text="0"
+                            android:layout_toRightOf="@+id/cbU"
+                            />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Di-Profeket"
+                            android:tag="w"
+                            android:padding="5dp"
+                            android:id="@+id/cbV" />
+                        <EditText
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/etV"
+                            android:enabled="false"
+                            android:text="0"
+                            android:layout_toRightOf="@+id/cbV"
+                            />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dolodiclomed"
+                            android:tag="s"
+                            android:padding="5dp"
+                            android:id="@+id/cbW" />
+                        <EditText
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/etW"
+                            android:enabled="false"
+                            android:text="0"
+                            android:layout_toRightOf="@+id/cbW"
+                            />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dolodran"
+                            android:tag="y"
+                            android:padding="5dp"
+                            android:id="@+id/cbX" />
+                        <EditText
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/etX"
+                            android:enabled="false"
+                            android:text="0"
+                            android:layout_toRightOf="@+id/cbX"
+                            />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Doloneurobion"
+                            android:tag="v"
+                            android:padding="5dp"
+                            android:id="@+id/cbY" />
+                        <EditText
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/etY"
+                            android:enabled="false"
+                            android:text="0"
+                            android:layout_toRightOf="@+id/cbY"
+                            />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dolopress Forte"
+                            android:tag="x"
+                            android:padding="5dp"
+                            android:id="@+id/cbZ" />
+                        <EditText
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/etZ"
+                            android:enabled="false"
+                            android:text="0"
+                            android:layout_toRightOf="@+id/cbZ"
+                            />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Maxiflam"
+                            android:tag="z"
+                            android:padding="5dp"
+                            android:id="@+id/cbAB" />
+                        <EditText
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/etAB"
+                            android:enabled="false"
+                            android:text="0"
+                            android:layout_toRightOf="@+id/cbAB"
+                            />
+                    </RelativeLayout>
+
+
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -444,17 +645,17 @@
                                 android:text="Otros"
                                 android:tag="ai"
                                 android:padding="5dp"
-                                android:id="@+id/cbS" />
+                                android:id="@+id/cbAC" />
                             <EditText
                                 android:layout_width="42dp"
                                 android:layout_height="42dp"
                                 android:inputType="number"
                                 android:ems="10"
-                                android:id="@+id/etS"
+                                android:id="@+id/etAC"
                                 android:enabled="false"
                                 android:text="0"
 
-                                android:layout_toRightOf="@+id/cbS"
+                                android:layout_toRightOf="@+id/cbAC"
                                 />
                     </RelativeLayout>
                     <LinearLayout

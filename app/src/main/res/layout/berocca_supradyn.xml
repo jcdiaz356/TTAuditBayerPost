@@ -58,7 +58,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Berocca /Suprandyn"
+                            android:text="Berocca /Supradyn"
                             android:tag="a"
                             android:padding="5dp"
                             android:layout_alignParentLeft="true"
@@ -673,7 +673,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/tvStock"
-                            android:text="¿Tiene Stock Supradyn?"/>
+                            android:text="¿Tiene Stock Berocca/Supradyn?"/>
                         <Switch
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

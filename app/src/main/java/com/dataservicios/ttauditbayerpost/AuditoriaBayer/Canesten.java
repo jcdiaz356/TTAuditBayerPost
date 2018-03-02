@@ -39,34 +39,25 @@ public class Canesten extends Activity {
 
     private Activity MyActivity = this ;
     private static final String LOG_TAG = Canesten.class.getSimpleName();
-    private SessionManager session;
-
-    private Switch sw_recomienda, sw_stock ;
-    private LinearLayout ly_stock,ly_productos;
-
-    private Button bt_photo, bt_guardar;
-    private EditText et_Comentario, et_ComentarioOtros;
-    private TextView tv_ComentarioOtros;
-    private TextView tv_Pregunta, tvStock;
-
-
-    private String tipo,cadenaruc,fechaRuta, comentario="" ,comentarioOtros="";
-    private Integer user_id, company_id,store_id,rout_id,audit_id, product_id, poll_id, poll_id_2,poll_id_3;
-
-    int  is_exhibidor=0, is_recomieda =0 , stock=0 ,is_priority=0;
-
-    private DatabaseHelper db;
-
-    private ProgressDialog pDialog;
-
-    String totalOption="";
-    int totalValores ;
-    int vTienda=0,vProducto=0,vA=0,vB=0,vC=0,vD;
-    String oTienda="",oProducto="",oA="",oB="",oC="",oD="";
-    String pTienda="",pProducto="",pA="",pB="",pC="",pD="";
-
-    private EditText[] editTextArray;
-    private CheckBox[] checkBoxArray;
+    private SessionManager  session;
+    private Switch          sw_recomienda, sw_stock ;
+    private LinearLayout    ly_stock,ly_productos;
+    private Button          bt_photo, bt_guardar;
+    private EditText        et_Comentario, et_ComentarioOtros;
+    private TextView        tv_ComentarioOtros;
+    private TextView        tv_Pregunta, tvStock;
+    private String          tipo,cadenaruc,fechaRuta, comentario="" ,comentarioOtros="";
+    private Integer         user_id, company_id,store_id,rout_id,audit_id, product_id, poll_id, poll_id_2,poll_id_3;
+    private int             is_exhibidor=0, is_recomieda =0 , stock=0 ,is_priority=0,indexCheckBoxOtros;
+    private DatabaseHelper  db;
+    private ProgressDialog  pDialog;
+    private String          totalOption="";
+    private int             totalValores ;
+//    private int             vTienda=0,vProducto=0,vA=0,vB=0,vC=0,vD;
+//    private String          oTienda="",oProducto="",oA="",oB="",oC="",oD="";
+//    private String          pTienda="",pProducto="",pA="",pB="",pC="",pD="";
+    private EditText[]      editTextArray;
+    private CheckBox[]      checkBoxArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,24 +68,17 @@ public class Canesten extends Activity {
         getActionBar().setTitle("CANESTEN");
 
 
-        sw_recomienda = (Switch) findViewById(R.id.swRecomienda);
-        sw_stock = (Switch) findViewById(R.id.swStock);
-        tvStock = (TextView) findViewById(R.id.tvStock);
-
-
-        ly_stock = (LinearLayout) findViewById(R.id.lyStock);
-        ly_productos = (LinearLayout) findViewById(R.id.lyProductos);
-
-        et_Comentario = (EditText) findViewById(R.id.etComentario);
-
-        et_ComentarioOtros = (EditText) findViewById(R.id.etComentarioOtros);
-        tv_ComentarioOtros = (TextView) findViewById(R.id.tvComentarioOtros);
-
-        tv_Pregunta = (TextView) findViewById(R.id.tvPregunta);
-
-        bt_guardar = (Button) findViewById(R.id.btGuardar);
-
-        et_Comentario = (EditText) findViewById(R.id.etComentario);
+        sw_recomienda       = (Switch) findViewById(R.id.swRecomienda);
+        sw_stock            = (Switch) findViewById(R.id.swStock);
+        tvStock             = (TextView) findViewById(R.id.tvStock);
+        ly_stock            = (LinearLayout) findViewById(R.id.lyStock);
+        ly_productos        = (LinearLayout) findViewById(R.id.lyProductos);
+        et_Comentario       = (EditText) findViewById(R.id.etComentario);
+        et_ComentarioOtros  = (EditText) findViewById(R.id.etComentarioOtros);
+        tv_ComentarioOtros  = (TextView) findViewById(R.id.tvComentarioOtros);
+        tv_Pregunta         = (TextView) findViewById(R.id.tvPregunta);
+        bt_guardar          = (Button) findViewById(R.id.btGuardar);
+        et_Comentario       = (EditText) findViewById(R.id.etComentario);
 
         editTextArray = new EditText[] {
                 (EditText) findViewById(R.id.etA),
@@ -106,6 +90,17 @@ public class Canesten extends Activity {
                 (EditText) findViewById(R.id.etG),
                 (EditText) findViewById(R.id.etH),
                 (EditText) findViewById(R.id.etI),
+                (EditText) findViewById(R.id.etJ),
+                (EditText) findViewById(R.id.etK),
+                (EditText) findViewById(R.id.etL),
+                (EditText) findViewById(R.id.etM),
+                (EditText) findViewById(R.id.etN),
+                (EditText) findViewById(R.id.etO),
+                (EditText) findViewById(R.id.etP),
+                (EditText) findViewById(R.id.etQ),
+                (EditText) findViewById(R.id.etR),
+                (EditText) findViewById(R.id.etS),
+                (EditText) findViewById(R.id.etT),
         };
         checkBoxArray = new CheckBox[] {
                 (CheckBox) findViewById(R.id.cbA),
@@ -117,23 +112,32 @@ public class Canesten extends Activity {
                 (CheckBox) findViewById(R.id.cbG),
                 (CheckBox) findViewById(R.id.cbH),
                 (CheckBox) findViewById(R.id.cbI),
+                (CheckBox) findViewById(R.id.cbJ),
+                (CheckBox) findViewById(R.id.cbK),
+                (CheckBox) findViewById(R.id.cbL),
+                (CheckBox) findViewById(R.id.cbM),
+                (CheckBox) findViewById(R.id.cbN),
+                (CheckBox) findViewById(R.id.cbO),
+                (CheckBox) findViewById(R.id.cbP),
+                (CheckBox) findViewById(R.id.cbQ),
+                (CheckBox) findViewById(R.id.cbR),
+                (CheckBox) findViewById(R.id.cbS),
+                (CheckBox) findViewById(R.id.cbT),
         };
 
-        Bundle bundle = getIntent().getExtras();
-        company_id = bundle.getInt("company_id");
-        store_id = bundle.getInt("store_id");
-        tipo = bundle.getString("tipo");
-        cadenaruc = bundle.getString("cadenaruc");
-        rout_id = bundle.getInt("rout_id");
-        fechaRuta = bundle.getString("fechaRuta");
-        audit_id = bundle.getInt("audit_id");
-        product_id =bundle.getInt("product_id");
+        Bundle bundle   = getIntent().getExtras();
+        company_id      = bundle.getInt("company_id");
+        store_id        = bundle.getInt("store_id");
+        tipo            = bundle.getString("tipo");
+        cadenaruc       = bundle.getString("cadenaruc");
+        rout_id         = bundle.getInt("rout_id");
+        fechaRuta       = bundle.getString("fechaRuta");
+        audit_id        = bundle.getInt("audit_id");
+        product_id      = bundle.getInt("product_id");
 
-//        poll_id = 72 , solo para exhibiciones de bayer, directo de la base de datos
-
-        poll_id = GlobalConstant.poll_id[2]; //SE RECOMIENDA EL PRODUCTO
-        poll_id_2 = GlobalConstant.poll_id[3]; //QUE PRODUCTO RECOMENDO
-        poll_id_3 = GlobalConstant.poll_id[4]; //STOcK
+        poll_id         = GlobalConstant.poll_id[2]; //SE RECOMIENDA EL PRODUCTO
+        poll_id_2       = GlobalConstant.poll_id[3]; //QUE PRODUCTO RECOMENDO
+        poll_id_3       = GlobalConstant.poll_id[4]; //STOcK
 
 
 
@@ -156,8 +160,6 @@ public class Canesten extends Activity {
         ly_stock.setEnabled(true);
         ly_stock.setVisibility(View.VISIBLE);
 
-
-
         checkBoxArray[0].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -166,36 +168,38 @@ public class Canesten extends Activity {
                     editTextArray[0].setText("1");
                     editTextArray[0].setEnabled(true);
                     editTextArray[0].requestFocus();
-                    tvStock.setVisibility(View.INVISIBLE);
-                    sw_stock.setEnabled(false);
-                    sw_stock.setVisibility(View.INVISIBLE);
+//                    tvStock.setVisibility(View.INVISIBLE);
+//                    sw_stock.setEnabled(false);
+//                    sw_stock.setVisibility(View.INVISIBLE);
                 } else{
                     editTextArray[0].setText("0");
                     editTextArray[0].setEnabled(false);
 
-                    tvStock.setVisibility(View.VISIBLE);
-                    sw_stock.setEnabled(true);
-                    sw_stock.setVisibility(View.VISIBLE);
+//                    tvStock.setVisibility(View.VISIBLE);
+//                    sw_stock.setEnabled(true);
+//                    sw_stock.setVisibility(View.VISIBLE);
                 }
             }
         });
 
         loadActionControl();
-        checkBoxArray[8].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+        indexCheckBoxOtros = checkBoxArray.length - 1;
+        checkBoxArray[indexCheckBoxOtros].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if ( isChecked )
                 {
-                    editTextArray[8].setText("1");
-                    editTextArray[8].setEnabled(true);
-                    editTextArray[8].requestFocus();
+                    editTextArray[indexCheckBoxOtros].setText("1");
+                    editTextArray[indexCheckBoxOtros].setEnabled(true);
+                    editTextArray[indexCheckBoxOtros].requestFocus();
                     // perform logic
                     tv_ComentarioOtros.setVisibility(View.VISIBLE);
                     et_ComentarioOtros.setEnabled(true);
                     et_ComentarioOtros.setVisibility(View.VISIBLE);
                 } else{
-                    editTextArray[8].setText("0");
-                    editTextArray[8].setEnabled(false);
+                    editTextArray[indexCheckBoxOtros].setText("0");
+                    editTextArray[indexCheckBoxOtros].setEnabled(false);
                     tv_ComentarioOtros.setVisibility(View.INVISIBLE);
                     et_ComentarioOtros.setEnabled(false);
                     et_ComentarioOtros.setVisibility(View.INVISIBLE);
@@ -311,8 +315,8 @@ public class Canesten extends Activity {
 
                 }
 
-                if (checkBoxArray[8].isChecked()) {
-                    if(editTextArray[8].getText().equals("")){
+                if (checkBoxArray[indexCheckBoxOtros].isChecked()) {
+                    if(editTextArray[indexCheckBoxOtros].getText().equals("")){
                         Toast toast;
                         toast = Toast.makeText(MyActivity, R.string.message_priority_value_numeric , Toast.LENGTH_LONG);
                         toast.show();
@@ -321,7 +325,7 @@ public class Canesten extends Activity {
 //                            vA = 1;
 //                            oA = String.valueOf(poll_id_2) + "f" + "-" + editTextArray[x].getText().toString(); //Dolocordralan Extra Fuerte
                         totalValores = totalValores + 1 ;
-                        totalOption = String.valueOf(poll_id_2) +  checkBoxArray[8].getTag().toString() + "-" + editTextArray[8].getText().toString()  + "|" + totalOption;
+                        totalOption = String.valueOf(poll_id_2) +  checkBoxArray[indexCheckBoxOtros].getTag().toString() + "-" + editTextArray[indexCheckBoxOtros].getText().toString()  + "|" + totalOption;
                     }
                 }
 
@@ -352,7 +356,6 @@ public class Canesten extends Activity {
                         comentarioOtros = String.valueOf(et_ComentarioOtros.getText()) ;
                         new loadPoll71().execute();
                         db.updateProductActive(product_id, 1);
-
 
                         List<ProductScore> listProductScore = new ArrayList<ProductScore>();
                         listProductScore = db.getAllProductsScore();
@@ -466,21 +469,28 @@ public class Canesten extends Activity {
 
                 //////////////////////////////////////////////modificado///////////////////////////////////////////
                 ProductScore ps = new ProductScore();
-                if(tipo.equals("CADENA")) {
+                if(tipo.equals("CADENA")|| tipo.equals("MINI CADENAS")) {
                     if (is_recomieda == 1 ) {
                         ps = db.getProductScoreForStore(store_id);
                         int total_products = 0;
                         total_products = 1 + ps.getTotalProducts();
                         db.updateProductScoreForTotalProducts(store_id, total_products);
                     }
-                } else if(tipo.equals("HORIZONTAL") || tipo.equals("DETALLISTA") || tipo.equals("MINI CADENAS")  || tipo.equals("SUB DISTRIBUIDOR")) {
-                    if (is_recomieda == 1 & is_priority == 1) {
+                } else if(tipo.equals("HORIZONTAL") || tipo.equals("DETALLISTA")   || tipo.equals("SUB DISTRIBUIDOR")  || tipo.equals("Mayoristas")) {
+                    if (is_recomieda == 1 && is_priority == 1) {
                         ps = db.getProductScoreForStore(store_id);
                         int total_products = 0;
                         total_products = 1 + ps.getTotalProducts();
                         db.updateProductScoreForTotalProducts(store_id, total_products);
                     }
                 }
+
+//                if (is_recomieda == 1 || is_priority == 1 ) {
+//                    ps = db.getProductScoreForStore(store_id);
+//                    int total_products = 0;
+//                    total_products = 1 + ps.getTotalProducts();
+//                    db.updateProductScoreForTotalProducts(store_id, total_products);
+//                }
                 //////////////////////////////////////////////end///////////////////////////////////////////
 
                 finish();
@@ -596,125 +606,144 @@ public class Canesten extends Activity {
 
     private void loadActionControl(){
 
-        checkBoxArray[1].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[1].setText("1");
-                    editTextArray[1].setEnabled(true);
-                    editTextArray[1].requestFocus();
-                } else{
-                    editTextArray[1].setText("0");
-                    editTextArray[1].setEnabled(false);
+        for (int x = 1; x < checkBoxArray.length - 1; x++) {
+            final int finalX = x;
+            checkBoxArray[x].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if ( isChecked )
+                    {
+                        editTextArray[finalX].setText("1");
+                        editTextArray[finalX].setEnabled(true);
+                        editTextArray[finalX].requestFocus();
+                    } else{
+                        editTextArray[finalX].setText("0");
+                        editTextArray[finalX].setEnabled(false);
+                    }
                 }
-            }
-        });
+            });
 
-        checkBoxArray[2].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[2].setText("1");
-                    editTextArray[2].setEnabled(true);
-                    editTextArray[2].requestFocus();
-                } else{
-                    editTextArray[2].setText("0");
-                    editTextArray[2].setEnabled(false);
-                }
-            }
-        });
+        }
 
-        checkBoxArray[3].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[3].setText("1");
-                    editTextArray[3].setEnabled(true);
-                    editTextArray[3].requestFocus();
-                } else{
-                    editTextArray[3].setText("0");
-                    editTextArray[3].setEnabled(false);
-                }
-            }
-        });
-
-        checkBoxArray[4].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[4].setText("1");
-                    editTextArray[4].setEnabled(true);
-                    editTextArray[4].requestFocus();
-                } else{
-                    editTextArray[4].setText("0");
-                    editTextArray[4].setEnabled(false);
-                }
-            }
-        });
-
-        checkBoxArray[5].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[5].setText("1");
-                    editTextArray[5].setEnabled(true);
-                    editTextArray[5].requestFocus();
-                } else{
-                    editTextArray[5].setText("0");
-                    editTextArray[5].setEnabled(false);
-                }
-            }
-        });
-
-        checkBoxArray[6].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[6].setText("1");
-                    editTextArray[6].setEnabled(true);
-                    editTextArray[6].requestFocus();
-                } else{
-                    editTextArray[6].setText("0");
-                    editTextArray[6].setEnabled(false);
-                }
-            }
-        });
-
-        checkBoxArray[7].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[7].setText("1");
-                    editTextArray[7].setEnabled(true);
-                    editTextArray[7].requestFocus();
-                } else{
-                    editTextArray[7].setText("0");
-                    editTextArray[7].setEnabled(false);
-                }
-            }
-        });
-
-        checkBoxArray[8].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if ( isChecked )
-                {
-                    editTextArray[8].setText("1");
-                    editTextArray[8].setEnabled(true);
-                    editTextArray[8].requestFocus();
-                } else{
-                    editTextArray[8].setText("0");
-                    editTextArray[8].setEnabled(false);
-                }
-            }
-        });
+//        checkBoxArray[1].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if ( isChecked )
+//                {
+//                    editTextArray[1].setText("1");
+//                    editTextArray[1].setEnabled(true);
+//                    editTextArray[1].requestFocus();
+//                } else{
+//                    editTextArray[1].setText("0");
+//                    editTextArray[1].setEnabled(false);
+//                }
+//            }
+//        });
+//
+//        checkBoxArray[2].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if ( isChecked )
+//                {
+//                    editTextArray[2].setText("1");
+//                    editTextArray[2].setEnabled(true);
+//                    editTextArray[2].requestFocus();
+//                } else{
+//                    editTextArray[2].setText("0");
+//                    editTextArray[2].setEnabled(false);
+//                }
+//            }
+//        });
+//
+//        checkBoxArray[3].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if ( isChecked )
+//                {
+//                    editTextArray[3].setText("1");
+//                    editTextArray[3].setEnabled(true);
+//                    editTextArray[3].requestFocus();
+//                } else{
+//                    editTextArray[3].setText("0");
+//                    editTextArray[3].setEnabled(false);
+//                }
+//            }
+//        });
+//
+//        checkBoxArray[4].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if ( isChecked )
+//                {
+//                    editTextArray[4].setText("1");
+//                    editTextArray[4].setEnabled(true);
+//                    editTextArray[4].requestFocus();
+//                } else{
+//                    editTextArray[4].setText("0");
+//                    editTextArray[4].setEnabled(false);
+//                }
+//            }
+//        });
+//
+//        checkBoxArray[5].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if ( isChecked )
+//                {
+//                    editTextArray[5].setText("1");
+//                    editTextArray[5].setEnabled(true);
+//                    editTextArray[5].requestFocus();
+//                } else{
+//                    editTextArray[5].setText("0");
+//                    editTextArray[5].setEnabled(false);
+//                }
+//            }
+//        });
+//
+//        checkBoxArray[6].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if ( isChecked )
+//                {
+//                    editTextArray[6].setText("1");
+//                    editTextArray[6].setEnabled(true);
+//                    editTextArray[6].requestFocus();
+//                } else{
+//                    editTextArray[6].setText("0");
+//                    editTextArray[6].setEnabled(false);
+//                }
+//            }
+//        });
+//
+//        checkBoxArray[7].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if ( isChecked )
+//                {
+//                    editTextArray[7].setText("1");
+//                    editTextArray[7].setEnabled(true);
+//                    editTextArray[7].requestFocus();
+//                } else{
+//                    editTextArray[7].setText("0");
+//                    editTextArray[7].setEnabled(false);
+//                }
+//            }
+//        });
+//
+//        checkBoxArray[8].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if ( isChecked )
+//                {
+//                    editTextArray[8].setText("1");
+//                    editTextArray[8].setEnabled(true);
+//                    editTextArray[8].requestFocus();
+//                } else{
+//                    editTextArray[8].setText("0");
+//                    editTextArray[8].setEnabled(false);
+//                }
+//            }
+//        });
 
 //        checkBoxArray[9].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 //            @Override

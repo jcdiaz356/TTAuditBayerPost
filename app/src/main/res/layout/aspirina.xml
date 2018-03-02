@@ -215,7 +215,6 @@
                             android:layout_toRightOf="@+id/cbH"
                             />
                     </RelativeLayout>
-
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content">
@@ -237,6 +236,27 @@
                             android:layout_toRightOf="@+id/cbI"
                             />
                     </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dupirina"
+                            android:tag="j"
+                            android:padding="5dp"
+                            android:id="@+id/cbJ" />
+                        <EditText
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/etJ"
+                            android:enabled="false"
+                            android:text="0"
+                            android:layout_toRightOf="@+id/cbJ"
+                            />
+                    </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="fill_parent"
@@ -248,7 +268,7 @@
                             android:text="Otros"
                             android:tag="ai"
                             android:padding="5dp"
-                            android:id="@+id/cbJ" />
+                            android:id="@+id/cbK" />
 
                         <EditText
                             android:layout_width="42dp"
@@ -257,8 +277,8 @@
                             android:ems="10"
                             android:text="0"
                             android:enabled="false"
-                            android:id="@+id/etJ"
-                            android:layout_toRightOf="@+id/cbJ"
+                            android:id="@+id/etK"
+                            android:layout_toRightOf="@+id/cbK"
                             />
                     </RelativeLayout>
                     <LinearLayout

@@ -426,21 +426,14 @@ public class Exhibicion extends Activity {
             if (result){
                 // loadLoginActivity();
 
-//***************************** inicio modificado ***********************
+                ProductScore ps = new ProductScore();
+                if(is_sino==1) {
 
-                        ProductScore ps = new ProductScore();
-                        if(is_sino==1) {
-
-                            ps = db.getProductScoreForStore(store_id);
-                            int total_exhibidores = 0 ;
-                            total_exhibidores = 1  + ps.getTotalExhibitions();
-                            db.updateProductScoreForTotalExhibitions(store_id,total_exhibidores);
-                        }
-
- //***************************** end ***********************
-
-
-
+                    ps = db.getProductScoreForStore(store_id);
+                    int total_exhibidores = 0 ;
+                    total_exhibidores = 1  + ps.getTotalExhibitions();
+                    db.updateProductScoreForTotalExhibitions(store_id,total_exhibidores);
+                }
 
                 Bundle argRuta = new Bundle();
                 argRuta.clear();

@@ -322,33 +322,33 @@ public class MainActivity extends Activity {
         //534 APRONAX
         pd.setIdProduct(534);
         pd.setTypeStore("HORIZONTAL");
-        pd.setQuestion("Tengo dolor en la espalda, me duele y siento que está inflamado ¿Qué me recomiendas?");
+        pd.setQuestion("Ayer levanté algo pesado y sentí como un tirón en la espalda.  Ahora me está doliendo y la siento inflamada. Que puedo tomar para que se me pase?");
         db.createPollProductStore(pd);
 
         pd.setIdProduct(534);
         pd.setTypeStore("SUB DISTRIBUIDOR");
-        pd.setQuestion("Tengo dolor en la espalda, me duele y siento que está inflamado ¿Qué me recomiendas?");
+        pd.setQuestion("Ayer levanté algo pesado y sentí como un tirón en la espalda.  Ahora me está doliendo y la siento inflamada. Que puedo tomar para que se me pase?");
         db.createPollProductStore(pd);
 
         pd.setIdProduct(534);
         pd.setTypeStore("DETALLISTA");
-        pd.setQuestion("Tengo dolor en la espalda, me duele y siento que está inflamado ¿Qué me recomiendas?");
+        pd.setQuestion("Ayer levanté algo pesado y sentí como un tirón en la espalda.  Ahora me está doliendo y la siento inflamada. Que puedo tomar para que se me pase??");
         db.createPollProductStore(pd);
 
         pd.setIdProduct(534);
         pd.setTypeStore("MINI CADENAS");
-        pd.setQuestion("Tengo dolor en la espalda, me duele y siento que está inflamado ¿Qué me recomiendas?");
+        pd.setQuestion("Empecé a ir al gimnasio y me están doliendo los hombros/piernas (escoger una opcion), creo que hice mucho esfuerzo ¿Qué pastilla me recomiendas para el dolor y que me desinflame?");
         db.createPollProductStore(pd);
 
 
         pd.setIdProduct(534);
         pd.setTypeStore("CADENA");
-        pd.setQuestion("¿Tengo una lesión en la pierna por jugar futbol, que pastilla me recomiendas que me desinflame?");
+        pd.setQuestion("Empecé a ir al gimnasio y me están doliendo los hombros/piernas (escoger una opcion), creo que hice mucho esfuerzo ¿Qué pastilla me recomiendas para el dolor y que me desinflame?");
         db.createPollProductStore(pd);
 
         pd.setIdProduct(534);
         pd.setTypeStore("Mayoristas");
-        pd.setQuestion("¿Tengo una lesión en la pierna por jugar futbol, que pastilla me recomiendas que me desinflame?");
+        pd.setQuestion("Empecé a ir al gimnasio y me están doliendo los hombros/piernas (escoger una opcion), creo que hice mucho esfuerzo ¿Qué pastilla me recomiendas para el dolor y que me desinflame?");
         db.createPollProductStore(pd);
 
         //535 ASPIRINA 500
@@ -549,35 +549,35 @@ public class MainActivity extends Activity {
 
         pd.setIdProduct(640);
         pd.setTypeStore("HORIZONTAL");
-        pd.setQuestion(" ¿Qué crema me recomienda para regenerar la piel dañada?");
+        pd.setQuestion("<b>Mystery:</b> Necesito una crema hidratante y que además me regenere la piel. ¿Qué me recomiendas? \n  <b> Dependiente: <b> que es lo que tiene? \n  <b>Mystery: </b> las rodillas resecas / codos, etc");
         db.createPollProductStore(pd);
 
 
         pd.setIdProduct(640);
         pd.setTypeStore("SUB DISTRIBUIDOR");
-        pd.setQuestion(" ¿Qué crema me recomienda para regenerar la piel dañada?");
+        pd.setQuestion("<b>Mystery:</b> Necesito una crema hidratante y que además me regenere la piel. ¿Qué me recomiendas? \n  <b> Dependiente: <b> que es lo que tiene? \n  <b>Mystery: </b> las rodillas resecas / codos, etc");
         db.createPollProductStore(pd);
 
 
         pd.setIdProduct(640);
         pd.setTypeStore("DETALLISTA");
-        pd.setQuestion(" ¿Qué crema me recomienda para regenerar la piel dañada?");
+        pd.setQuestion("<b>Mystery:</b> Necesito una crema hidratante y que además me regenere la piel. ¿Qué me recomiendas? \n  <b> Dependiente: <b> que es lo que tiene? \n  <b>Mystery: </b> las rodillas resecas / codos, etc");
         db.createPollProductStore(pd);
 
 
         pd.setIdProduct(640);
         pd.setTypeStore("MINI CADENAS");
-        pd.setQuestion(" ¿Qué crema me recomienda para regenerar la piel dañada?");
+        pd.setQuestion("<b>Mystery:</b> Necesito una crema hidratante y que además me regenere la piel. ¿Qué me recomiendas? \n  <b> Dependiente: <b> que es lo que tiene? \n  <b>Mystery: </b> las rodillas resecas / codos, etc");
         db.createPollProductStore(pd);
 
         pd.setIdProduct(640);
         pd.setTypeStore("CADENA");
-        pd.setQuestion(" Necesito una crema que sea hidratante y además que me regenere la piel. ¿Qué me recomienda?");
+        pd.setQuestion("<b>Mystery:</b> Necesito una crema hidratante y que además me regenere la piel. ¿Qué me recomiendas? \n  <b> Dependiente: <b> que es lo que tiene? \n  <b>Mystery: </b> las rodillas resecas / codos, etc");
         db.createPollProductStore(pd);
 
         pd.setIdProduct(640);
         pd.setTypeStore("Mayoristas");
-        pd.setQuestion(" Necesito una crema que sea hidratante y además que me regenere la piel. ¿Qué me recomienda?");
+        pd.setQuestion("<b>Mystery:</b> Necesito una crema hidratante y que además me regenere la piel. ¿Qué me recomiendas? \n  <b> Dependiente: <b> que es lo que tiene? \n  <b>Mystery: </b> las rodillas resecas / codos, etc");
         db.createPollProductStore(pd);
 
         //642 Supradyn Pro natal
@@ -693,33 +693,33 @@ public class MainActivity extends Activity {
 
         pd.setIdProduct(645);
         pd.setTypeStore("HORIZONTAL");
-        pd.setQuestion("¿ Qué producto para multivitamínico, me recomiendas que me otorgue mayor ganancia y buena rotación?");
+        pd.setQuestion("Me siento cansado, necesito vitaminas ¿Qué multivitamínico completo me recomiendas?");
         db.createPollProductStore(pd);
 
         pd.setIdProduct(645);
         pd.setTypeStore("SUB DISTRIBUIDOR");
-        pd.setQuestion("¿ Qué producto multivitamínico, me recomiendas para  que me otorgue mayor ganancia y buena rotación ?");
+        pd.setQuestion("Me siento cansado, necesito vitaminas ¿Qué multivitamínico completo me recomiendas?");
         db.createPollProductStore(pd);
 
         pd.setIdProduct(645);
         pd.setTypeStore("DETALLISTA");
-        pd.setQuestion("¿Qué multivitamínico que me de energía y mejore mi concentración me recomiendas?");
+        pd.setQuestion("Me siento cansado, necesito vitaminas ¿Qué multivitamínico completo me recomiendas?");
         db.createPollProductStore(pd);
 
         pd.setIdProduct(645);
         pd.setTypeStore("MINI CADENAS");
-        pd.setQuestion("¿Qué multivitamínico que me de energía y mejore mi concentración me recomiendas?");
+        pd.setQuestion("Me siento cansado, necesito vitaminas ¿Qué multivitamínico completo me recomiendas?");
         db.createPollProductStore(pd);
 
         pd.setIdProduct(645);
         pd.setTypeStore("CADENA");
-        pd.setQuestion("¿Qué multivitamínico que me de energía y mejore mi concentración me recomiendas?");
+        pd.setQuestion("Me siento cansado, necesito vitaminas ¿Qué multivitamínico completo me recomiendas?");
         db.createPollProductStore(pd);
 
 
         pd.setIdProduct(645);
         pd.setTypeStore("Mayoristas");
-        pd.setQuestion("¿Qué multivitamínico que me de energía y mejore mi concentración me recomiendas?");
+        pd.setQuestion("Me siento cansado, necesito vitaminas ¿Qué multivitamínico completo me recomiendas?");
         db.createPollProductStore(pd);
 
         //844 Bepanthen Ungüento
