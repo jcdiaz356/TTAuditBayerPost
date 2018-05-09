@@ -102,6 +102,8 @@ public class Exhibicion extends Activity {
                 (CheckBox) findViewById(R.id.cbG),
                 (CheckBox) findViewById(R.id.cbH),
         };
+
+
         etCommentOption     = new EditText(MyActivity);
 
 

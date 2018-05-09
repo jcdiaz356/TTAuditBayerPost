@@ -79,7 +79,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Dologyna"
+                            android:text="Iraxen"
                             android:tag="b"
                             android:padding="5dp"
                             android:id="@+id/cbB" />
@@ -100,7 +100,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Iraxen"
+                            android:text="Paldolor"
                             android:tag="c"
                             android:padding="5dp"
                             android:id="@+id/cbC" />
@@ -121,7 +121,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Paldolor"
+                            android:text="Miofedrol"
                             android:tag="d"
                             android:padding="5dp"
                             android:id="@+id/cbD" />
@@ -136,13 +136,14 @@
                             android:layout_toRightOf="@+id/cbD"
                             />
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content">
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Miofedrol"
+                            android:text="Naproxeno"
                             android:tag="e"
                             android:padding="5dp"
                             android:id="@+id/cbE" />
@@ -163,7 +164,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Dolocordralan Extra Fuerte"
+                            android:text="Miopress Forte"
                             android:tag="f"
                             android:padding="5dp"
                             android:id="@+id/cbF" />
@@ -184,7 +185,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Doloflam Extra Fuerte"
+                            android:text="Miodel"
                             android:tag="g"
                             android:padding="5dp"
                             android:id="@+id/cbG" />
@@ -205,7 +206,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Naproxeno"
+                            android:text="Dolgramin"
                             android:tag="h"
                             android:padding="5dp"
                             android:id="@+id/cbH" />
@@ -226,7 +227,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Miopress Forte"
+                            android:text="Breflex"
                             android:tag="i"
                             android:padding="5dp"
                             android:id="@+id/cbI" />
@@ -247,7 +248,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Miodel"
+                            android:text="Doloaproxol"
                             android:tag="j"
                             android:padding="5dp"
                             android:id="@+id/cbJ" />
@@ -268,7 +269,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Dolgramin"
+                            android:text="Dioxaflex"
                             android:tag="k"
                             android:padding="5dp"
                             android:id="@+id/cbK" />
@@ -289,7 +290,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Breflex"
+                            android:text="Flogodisten"
                             android:tag="l"
                             android:padding="5dp"
                             android:id="@+id/cbL" />
@@ -310,7 +311,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Doloaproxol"
+                            android:text="Aflamax"
                             android:tag="m"
                             android:padding="5dp"
                             android:id="@+id/cbM" />
@@ -325,13 +326,15 @@
                             android:layout_toRightOf="@+id/cbM"
                             />
                     </RelativeLayout>
+
+
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content">
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Dioxaflex"
+                            android:text="Redex"
                             android:tag="n"
                             android:padding="5dp"
                             android:id="@+id/cbN" />
@@ -346,13 +349,14 @@
                             android:layout_toRightOf="@+id/cbN"
                             />
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content">
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Flogodisten"
+                            android:text="Artrigan Plus"
                             android:tag="o"
                             android:padding="5dp"
                             android:id="@+id/cbO" />
@@ -367,13 +371,15 @@
                             android:layout_toRightOf="@+id/cbO"
                             />
                     </RelativeLayout>
+
+
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content">
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Aflamax"
+                            android:text="Debrox"
                             android:tag="p"
                             android:padding="5dp"
                             android:id="@+id/cbP" />
@@ -389,14 +395,13 @@
                             />
                     </RelativeLayout>
 
-
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content">
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Dolomuskqlar"
+                            android:text="Diclofenaco"
                             android:tag="q"
                             android:padding="5dp"
                             android:id="@+id/cbQ" />
@@ -418,7 +423,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Redex"
+                            android:text="Di-Profeket"
                             android:tag="r"
                             android:padding="5dp"
                             android:id="@+id/cbR" />
@@ -440,8 +445,8 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Artrigan Plus"
-                            android:tag="u"
+                            android:text="Dolodiclomed"
+                            android:tag="s"
                             android:padding="5dp"
                             android:id="@+id/cbS" />
                         <EditText
@@ -456,14 +461,13 @@
                             />
                     </RelativeLayout>
 
-
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content">
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Debrox"
+                            android:text="Dolodran"
                             android:tag="t"
                             android:padding="5dp"
                             android:id="@+id/cbT" />
@@ -485,8 +489,8 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Diclofenaco"
-                            android:tag="aa"
+                            android:text="Doloneurobion"
+                            android:tag="u"
                             android:padding="5dp"
                             android:id="@+id/cbU" />
                         <EditText
@@ -501,14 +505,15 @@
                             />
                     </RelativeLayout>
 
+
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content">
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Di-Profeket"
-                            android:tag="w"
+                            android:text="Dolopress Forte"
+                            android:tag="v"
                             android:padding="5dp"
                             android:id="@+id/cbV" />
                         <EditText
@@ -529,8 +534,8 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Dolodiclomed"
-                            android:tag="s"
+                            android:text="Maxiflam"
+                            android:tag="w"
                             android:padding="5dp"
                             android:id="@+id/cbW" />
                         <EditText
@@ -551,8 +556,8 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Dolodran"
-                            android:tag="y"
+                            android:text="Dolodyp"
+                            android:tag="x"
                             android:padding="5dp"
                             android:id="@+id/cbX" />
                         <EditText
@@ -573,8 +578,8 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Doloneurobion"
-                            android:tag="v"
+                            android:text="Coxiflam"
+                            android:tag="y"
                             android:padding="5dp"
                             android:id="@+id/cbY" />
                         <EditText
@@ -591,52 +596,6 @@
 
 
                     <RelativeLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Dolopress Forte"
-                            android:tag="x"
-                            android:padding="5dp"
-                            android:id="@+id/cbZ" />
-                        <EditText
-                            android:layout_width="42dp"
-                            android:layout_height="42dp"
-                            android:inputType="number"
-                            android:ems="10"
-                            android:id="@+id/etZ"
-                            android:enabled="false"
-                            android:text="0"
-                            android:layout_toRightOf="@+id/cbZ"
-                            />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Maxiflam"
-                            android:tag="z"
-                            android:padding="5dp"
-                            android:id="@+id/cbAB" />
-                        <EditText
-                            android:layout_width="42dp"
-                            android:layout_height="42dp"
-                            android:inputType="number"
-                            android:ems="10"
-                            android:id="@+id/etAB"
-                            android:enabled="false"
-                            android:text="0"
-                            android:layout_toRightOf="@+id/cbAB"
-                            />
-                    </RelativeLayout>
-
-
-
-                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                             <CheckBox
@@ -645,17 +604,17 @@
                                 android:text="Otros"
                                 android:tag="ai"
                                 android:padding="5dp"
-                                android:id="@+id/cbAC" />
+                                android:id="@+id/cbZ" />
                             <EditText
                                 android:layout_width="42dp"
                                 android:layout_height="42dp"
                                 android:inputType="number"
                                 android:ems="10"
-                                android:id="@+id/etAC"
+                                android:id="@+id/etZ"
                                 android:enabled="false"
                                 android:text="0"
 
-                                android:layout_toRightOf="@+id/cbAC"
+                                android:layout_toRightOf="@+id/cbZ"
                                 />
                     </RelativeLayout>
                     <LinearLayout

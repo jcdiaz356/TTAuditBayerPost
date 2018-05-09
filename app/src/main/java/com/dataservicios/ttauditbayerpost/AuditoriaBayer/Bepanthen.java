@@ -113,10 +113,7 @@ public class Bepanthen extends Activity {
                 (EditText) findViewById(R.id.etK),
                 (EditText) findViewById(R.id.etL),
                 (EditText) findViewById(R.id.etM),
-                (EditText) findViewById(R.id.etN),
-                (EditText) findViewById(R.id.etO),
-                (EditText) findViewById(R.id.etP),
-                (EditText) findViewById(R.id.etQ),
+
         };
         checkBoxArray = new CheckBox[] {
                 (CheckBox) findViewById(R.id.cbA),
@@ -132,10 +129,6 @@ public class Bepanthen extends Activity {
                 (CheckBox) findViewById(R.id.cbK),
                 (CheckBox) findViewById(R.id.cbL),
                 (CheckBox) findViewById(R.id.cbM),
-                (CheckBox) findViewById(R.id.cbN),
-                (CheckBox) findViewById(R.id.cbO),
-                (CheckBox) findViewById(R.id.cbP),
-                (CheckBox) findViewById(R.id.cbQ),
         };
 
         Bundle bundle = getIntent().getExtras();
@@ -495,7 +488,7 @@ public class Bepanthen extends Activity {
 
                 ProductScore ps = new ProductScore();
                 if(tipo.equals("CADENA") || tipo.equals("MINI CADENAS") ) {
-                    if (is_recomieda == 1 ) {
+                    if (is_recomieda == 1  && is_priority <= 2) {
                         ps = db.getProductScoreForStore(store_id);
                         int total_products = 0;
                         total_products = 1 + ps.getTotalProducts();
@@ -503,7 +496,7 @@ public class Bepanthen extends Activity {
 
                     }
                 } else if(tipo.equals("HORIZONTAL") || tipo.equals("DETALLISTA")  || tipo.equals("SUB DISTRIBUIDOR")  || tipo.equals("Mayoristas")) {
-                    if (is_recomieda == 1 & is_priority == 1) {
+                    if (is_recomieda == 1 && is_priority == 1) {
                         ps = db.getProductScoreForStore(store_id);
                         int total_products = 0;
                         total_products = 1 + ps.getTotalProducts();

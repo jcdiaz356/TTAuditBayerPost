@@ -107,12 +107,12 @@ public class BayerOpenClose extends Activity {
                 if (isChecked) {
 
                     is_sino = 1;
-                    bt_photo.setVisibility(View.INVISIBLE);
-                    bt_photo.setEnabled(false);
+                    //bt_photo.setVisibility(View.INVISIBLE);
+                    //bt_photo.setEnabled(false);
                 } else {
                     is_sino = 0;
-                    bt_photo.setVisibility(View.VISIBLE);
-                    bt_photo.setEnabled(true);
+                    //bt_photo.setVisibility(View.VISIBLE);
+                    //bt_photo.setEnabled(true);
                 }
             }
         });

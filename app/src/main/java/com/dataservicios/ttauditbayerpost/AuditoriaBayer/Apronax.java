@@ -113,8 +113,7 @@ public class Apronax extends Activity {
                 (EditText) findViewById(R.id.etX),
                 (EditText) findViewById(R.id.etY),
                 (EditText) findViewById(R.id.etZ),
-                (EditText) findViewById(R.id.etAB),
-                (EditText) findViewById(R.id.etAC),
+
         };
         checkBoxArray = new CheckBox[] {
                 (CheckBox) findViewById(R.id.cbA),
@@ -143,8 +142,7 @@ public class Apronax extends Activity {
                 (CheckBox) findViewById(R.id.cbX),
                 (CheckBox) findViewById(R.id.cbY),
                 (CheckBox) findViewById(R.id.cbZ),
-                (CheckBox) findViewById(R.id.cbAB),
-                (CheckBox) findViewById(R.id.cbAC),
+
         };
 
         ly_stock = (LinearLayout) findViewById(R.id.lyStock);
@@ -495,7 +493,7 @@ public class Apronax extends Activity {
 //                        }
 
                         if(tipo.equals("CADENA") || tipo.equals("MINI CADENAS") ) {
-                            if (is_recomieda == 1 ) {
+                            if (is_recomieda == 1 && is_priority <= 2) {
                                 ps = db.getProductScoreForStore(store_id);
                                 int total_products = 0;
                                 total_products = 1 + ps.getTotalProducts();

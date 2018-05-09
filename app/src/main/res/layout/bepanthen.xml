@@ -59,7 +59,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Bepanthen"
-                            android:tag="a"
+                            android:tag="k"
                             android:padding="5dp"
                             android:id="@+id/cbA" />
                         <EditText
@@ -80,7 +80,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Mucovit"
-                            android:tag="b"
+                            android:tag="a"
                             android:padding="5dp"
                             android:id="@+id/cbB"
                             android:layout_alignParentTop="true"
@@ -103,7 +103,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Apipol"
-                            android:tag="c"
+                            android:tag="b"
                             android:padding="5dp"
                             android:id="@+id/cbC" />
                         <EditText
@@ -124,7 +124,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Aquasol"
-                            android:tag="d"
+                            android:tag="c"
                             android:padding="5dp"
                             android:id="@+id/cbD" />
                         <EditText
@@ -145,7 +145,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Dermafar"
-                            android:tag="e"
+                            android:tag="d"
                             android:padding="5dp"
                             android:id="@+id/cbE" />
                         <EditText
@@ -166,7 +166,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Cicatricure"
-                            android:tag="f"
+                            android:tag="e"
                             android:padding="5dp"
                             android:id="@+id/cbF" />
                         <EditText
@@ -187,7 +187,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Eucerin"
-                            android:tag="g"
+                            android:tag="f"
                             android:padding="5dp"
                             android:id="@+id/cbG" />
                         <EditText
@@ -208,7 +208,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Magistral"
-                            android:tag="h"
+                            android:tag="g"
                             android:padding="5dp"
                             android:id="@+id/cbH" />
                         <EditText
@@ -229,7 +229,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Regenerum"
-                            android:tag="i"
+                            android:tag="h"
                             android:padding="5dp"
                             android:id="@+id/cbI"
                             android:layout_alignParentTop="true"
@@ -252,7 +252,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Biopiel"
-                            android:tag="j"
+                            android:tag="i"
                             android:padding="5dp"
                             android:id="@+id/cbJ" />
                         <EditText
@@ -273,7 +273,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Emolan"
-                            android:tag="k"
+                            android:tag="j"
                             android:padding="5dp"
                             android:id="@+id/cbK" />
                         <EditText
@@ -288,13 +288,14 @@
                             />
                     </RelativeLayout>
 
+
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content">
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Nivea"
+                            android:text="Bio-Oil"
                             android:tag="l"
                             android:padding="5dp"
                             android:id="@+id/cbL" />
@@ -311,13 +312,13 @@
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:layout_width="fill_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Pond's"
-                            android:tag="m"
+                            android:text="Otros"
+                            android:tag="ai"
                             android:padding="5dp"
                             android:id="@+id/cbM" />
                         <EditText
@@ -329,94 +330,6 @@
                             android:enabled="false"
                             android:text="0"
                             android:layout_toRightOf="@+id/cbM"
-                            />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Cluny"
-                            android:tag="n"
-                            android:padding="5dp"
-                            android:id="@+id/cbN" />
-                        <EditText
-                            android:layout_width="42dp"
-                            android:layout_height="42dp"
-                            android:inputType="number"
-                            android:ems="10"
-                            android:id="@+id/etN"
-                            android:enabled="false"
-                            android:text="0"
-                            android:layout_toRightOf="@+id/cbN"
-                            />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Hipoglos"
-                            android:tag="o"
-                            android:padding="5dp"
-                            android:id="@+id/cbO" />
-                        <EditText
-                            android:layout_width="42dp"
-                            android:layout_height="42dp"
-                            android:inputType="number"
-                            android:ems="10"
-                            android:id="@+id/etO"
-                            android:enabled="false"
-                            android:text="0"
-                            android:layout_toRightOf="@+id/cbO"
-                            />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Bio-Oil"
-                            android:tag="p"
-                            android:padding="5dp"
-                            android:id="@+id/cbP" />
-                        <EditText
-                            android:layout_width="42dp"
-                            android:layout_height="42dp"
-                            android:inputType="number"
-                            android:ems="10"
-                            android:id="@+id/etP"
-                            android:enabled="false"
-                            android:text="0"
-                            android:layout_toRightOf="@+id/cbP"
-                            />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Otros"
-                            android:tag="ai"
-                            android:padding="5dp"
-                            android:id="@+id/cbQ" />
-                        <EditText
-                            android:layout_width="42dp"
-                            android:layout_height="42dp"
-                            android:inputType="number"
-                            android:ems="10"
-                            android:id="@+id/etQ"
-                            android:enabled="false"
-                            android:text="0"
-                            android:layout_toRightOf="@+id/cbQ"
                             />
                     </RelativeLayout>
 
